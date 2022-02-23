@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+
+</head>
+<body>
+  <!-- 定制导航栏 start -->
+  <!-- <nav>
+    <a href="#/">首页</a>
+    <a href="#/web/">前端学习</a>
+  </nav> -->
+  <!-- 定制导航栏 end -->
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      // 在侧边栏中出现的网站图标，你可以使用CSS来更改大小
+      // logo: '/_media/icon.svg',
+      name: '<span>CLOUTP</span>',
+      repo: 'https://github.com/cloutp/cloutp.github.io.git',
+      // 开始_sidebar展示,多级
+      loadSidebar: true,
+      // 深层目录展示.多级
+      subMaxLevel: 3,
+      // 导航栏配置文件方式,多级
+      loadNavbar: true,
+      // 封面渲染,多级
+      coverpage: true,
+      // 切换页面后是否自动跳转到页面顶部。
+      auto2top: true,
+      // 小屏设备下合并导航栏到侧边栏。
+      mergeNavbar: true,
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      // 路由导航模式,docsify式vue项目
+      // routerMode: 'history',history模式有问题
+      // 在找不到指定页面时加载_404.md,可以自定义也可以默认
+      notFoundPage: true,
+      // 导航模块配置
+      pagination: {
+        previousText: '上一章节',
+        nextText: '下一章节',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      // 字数统计
+      count:{
+        countable:true,
+        fontsize:'1em',
+        color:'rgb(90,90,90)',
+        language:'chinese'
+      }
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- 引入图标文件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!-- 图片加载插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- 代码块复制插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- 导航模块 -->
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+
+
+
+  <!-- gittalk模块 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+    clientID: 'Github Application Client ID',
+    clientSecret: 'Github Application Client Secret',
+    repo: 'Github repo',
+    owner: 'Github repo owner',
+    admin: ['Github repo collaborators, only these guys can initialize github issues'],
+    // facebook-like distraction free mode
+    distractionFreeMode: false
+  })
+  </script>
+
+  
+</body>
+</html>
