@@ -1157,7 +1157,44 @@
 <h3 id="this_1">函数内部的this指向</h3>
 <p>这些 this 的指向，是当我们调用函数的时候确定的。调用方式的不同决定了this 的指向不同</p>
 <p>一般指向我们的调用者.</p>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day03\4-笔记\images\img1.png" /></p>
+<table>
+<thead>
+<tr>
+<th>调用方式</th>
+<th>this指向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通函数调用</td>
+<td>window</td>
+</tr>
+<tr>
+<td>构造函数调用</td>
+<td>实例对象原型对象里面的方法也指向实例对象</td>
+</tr>
+<tr>
+<td>对象方法调用</td>
+<td>该方法所属对象</td>
+</tr>
+<tr>
+<td>事件绑定方法</td>
+<td>绑定事件对象</td>
+</tr>
+<tr>
+<td>定时器函数</td>
+<td>window</td>
+</tr>
+<tr>
+<td>立即执行函数</td>
+<td>window</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="this_2">改变函数内部 this 指向</h3>
 <h4 id="call">call方法</h4>
 <p>call()方法调用一个对象。简单理解为调用函数的方式，但是它可以改变函数的 this 指向</p>
@@ -1172,8 +1209,6 @@
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nx">fn</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">)</span><span class="c1">// 此时的this指向的是window 运行结果为3</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nx">fn</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">)</span><span class="c1">//此时的this指向的是对象o,参数使用逗号隔开,运行结果为3</span>
 </code></pre></div>
-<p>以上代码运行结果为:</p>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day03\4-笔记\images\img4.png" /></p>
 <h4 id="apply">apply方法</h4>
 <p>apply() 方法调用一个函数。简单理解为调用函数的方式，但是它可以改变函数的 this 指向。</p>
 <p>应用场景:  经常跟数组有关系</p>
@@ -1187,7 +1222,6 @@
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nx">fn</span><span class="p">()</span><span class="c1">// 此时的this指向的是window 运行结果为3</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">o</span><span class="p">,[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">])</span><span class="c1">//此时的this指向的是对象o,参数使用数组传递 运行结果为3</span>
 </code></pre></div>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day03\4-笔记\images\img4.png" /></p>
 <h4 id="bind">bind方法</h4>
 <p>bind() 方法不会调用函数,但是能改变函数内部this 指向,返回的是原函数改变this之后产生的新函数</p>
 <p>如果只是想改变 this 指向，并且不想调用这个函数的时候，可以使用bind</p>
@@ -1203,7 +1237,6 @@
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span> <span class="c1">//此处的f是bind返回的新函数</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nx">f</span><span class="p">();</span><span class="c1">//调用新函数  this指向的是对象o 参数使用逗号隔开</span>
 </code></pre></div>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day03\4-笔记\images\img5.png" /></p>
 <h4 id="callapplybind">call、apply、bind三者的异同</h4>
 <ul>
 <li>共同点 : 都可以改变this指向</li>

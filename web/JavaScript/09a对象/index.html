@@ -947,13 +947,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1347,13 +1340,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1613,7 +1599,7 @@
 </code></pre></div>
 <h3 id="_7">构造函数的问题</h3>
 <p>构造函数方法很好用，但是存在浪费内存的问题。</p>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img1.png" /></p>
+<p>我们希望所有的对象使用同一个函数，这样就比较节省内存</p>
 <h3 id="prototype">构造函数原型prototype</h3>
 <p>构造函数通过原型分配的函数是所有对象所共享的。</p>
 <p>JavaScript 规定，每一个构造函数都有一个prototype 属性，指向另一个对象。注意这个prototype就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。</p>
@@ -1630,84 +1616,98 @@
 <a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="nx">ldh</span><span class="p">.</span><span class="nx">sing</span><span class="p">();</span><span class="c1">//我会唱歌</span>
 <a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="nx">zxy</span><span class="p">.</span><span class="nx">sing</span><span class="p">();</span><span class="c1">//我会唱歌</span>
 </code></pre></div>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img7.png" /></p>
 <h3 id="_8">对象原型</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>对象都会有一个属性 __proto__ 指向构造函数的 prototype 原型对象，之所以我们对象可以使用构造函数 prototype 原型对象的属性和方法，就是因为对象有 __proto__ 原型的存在。
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>__proto__对象原型和原型对象 prototype 是等价的
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>__proto__对象原型的意义就在于为对象的查找机制提供一个方向，或者说一条路线，但是它是一个非标准属性，因此实际开发中，不可以使用这个属性，它只是内部指向原型对象 prototype
 </code></pre></div>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img2.png" /></p>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img3.png" /></p>
+<p><img alt="" src="web/JavaScript/images/img2.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">function</span> <span class="nx">Star</span><span class="p">(</span> <span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="k">this</span><span class="p">.</span><span class="nx">uname</span> <span class="o">=</span> <span class="nx">uname</span><span class="p">;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">}</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nx">Star</span><span class="p">.</span> <span class="nx">prototype</span><span class="p">.</span><span class="nx">sing</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>    <span class="nx">consoLe</span><span class="p">.</span> <span class="mf">1</span><span class="nx">og</span><span class="p">(</span><span class="s1">&#39;我会唱歌&#39;</span><span class="p">);</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="p">}</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="kd">var</span> <span class="nx">ldh</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Star</span><span class="p">(</span> <span class="s1">&#39;刘德华&#39;</span><span class="err">，</span><span class="mf">18</span><span class="p">);</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="kd">var</span> <span class="nx">zxy</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Star</span><span class="p">(</span><span class="s1">&#39;张学友&#39;</span><span class="err">，</span><span class="mf">19</span><span class="p">);</span><span class="nx">ldh</span><span class="p">.</span><span class="nx">sing</span><span class="p">();</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">ldh</span><span class="p">);</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="nx">consoLe</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ldh</span><span class="p">.</span><span class="nx">_proto__</span> <span class="o">===</span> <span class="nx">Star</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span><span class="err">/ /true</span>
+</code></pre></div>
 <h3 id="constructor">constructor构造函数</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>对象原型（ __proto__）和构造函数（prototype）原型对象里面都有一个属性 constructor 属性 ，constructor 我们称为构造函数，因为它指回构造函数本身。
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>constructor 主要用于记录该对象引用于哪个构造函数，它可以让原型对象重新指向原来的构造函数。
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>一般情况下，对象的方法都在构造函数的原型对象中设置。如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象 constructor  就不再指向当前构造函数了。此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>对象原型（ __proto__）和构造函数（prototype）原型对象里面都有一个属性 constructor 属性 ，constructor 我们称为构造函数，因为它指回构造函数本身。
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>constructor 主要用于记录该对象引用于哪个构造函数，它可以让原型对象重新指向原来的构造函数。
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>一般情况下，对象的方法都在构造函数的原型对象中设置。如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象 constructor  就不再指向当前构造函数了。此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数。
 </code></pre></div>
 <p>如果我们修改了原来的原型对象,给原型对象赋值的是一个对象,则必须手动的利用constructor指回原来的构造函数如:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a> <span class="kd">function</span> <span class="nx">Star</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>     <span class="k">this</span><span class="p">.</span><span class="nx">uname</span> <span class="o">=</span> <span class="nx">uname</span><span class="p">;</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a> <span class="p">}</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a> <span class="c1">// 很多情况下,我们需要手动的利用constructor 这个属性指回 原来的构造函数</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a> <span class="nx">Star</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a> <span class="c1">// 如果我们修改了原来的原型对象,给原型对象赋值的是一个对象,则必须手动的利用constructor指回原来的构造函数</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>   <span class="kr">constructor</span><span class="o">:</span> <span class="nx">Star</span><span class="p">,</span> <span class="c1">// 手动设置指回原来的构造函数</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>   <span class="nx">sing</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;我会唱歌&#39;</span><span class="p">);</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>   <span class="p">},</span>
-<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>   <span class="nx">movie</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;我会演电影&#39;</span><span class="p">);</span>
-<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>   <span class="p">}</span>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="p">}</span>
-<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="kd">var</span> <span class="nx">zxy</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Star</span><span class="p">(</span><span class="s1">&#39;张学友&#39;</span><span class="p">,</span> <span class="mf">19</span><span class="p">);</span>
-<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">zxy</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a> <span class="kd">function</span> <span class="nx">Star</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>     <span class="k">this</span><span class="p">.</span><span class="nx">uname</span> <span class="o">=</span> <span class="nx">uname</span><span class="p">;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a> <span class="p">}</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a> <span class="c1">// 很多情况下,我们需要手动的利用constructor 这个属性指回 原来的构造函数</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a> <span class="nx">Star</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a> <span class="c1">// 如果我们修改了原来的原型对象,给原型对象赋值的是一个对象,则必须手动的利用constructor指回原来的构造函数</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>   <span class="kr">constructor</span><span class="o">:</span> <span class="nx">Star</span><span class="p">,</span> <span class="c1">// 手动设置指回原来的构造函数</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>   <span class="nx">sing</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;我会唱歌&#39;</span><span class="p">);</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>   <span class="p">},</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>   <span class="nx">movie</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;我会演电影&#39;</span><span class="p">);</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>   <span class="p">}</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="p">}</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="kd">var</span> <span class="nx">zxy</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Star</span><span class="p">(</span><span class="s1">&#39;张学友&#39;</span><span class="p">,</span> <span class="mf">19</span><span class="p">);</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">zxy</span><span class="p">)</span>
 </code></pre></div>
-<p>以上代码运行结果,设置constructor属性如图:</p>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img8.png" />如果未设置constructor属性,如图:</p>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img9.png" /></p>
+<ul>
+<li>
+<p>设置constructor属性</p>
+</li>
+<li>
+<p>未设置constructor属性</p>
+</li>
+</ul>
 <h3 id="_9">原型链</h3>
 <p>​   每一个实例对象又有一个__proto__属性，指向的构造函数的原型对象，构造函数的原型对象也是一个对象，也有__proto__属性，这样一层一层往上找就形成了原型链。</p>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img5.png" /></p>
+<p><img alt="" src="web/JavaScript/images/img5.png" /></p>
 <h3 id="_10">构造函数实例和原型对象三角关系</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="mf">1.</span><span class="nx">构造函数的prototype属性指向了构造函数原型对象</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="mf">2.</span><span class="nx">实例对象是由构造函数创建的</span><span class="p">,</span><span class="nx">实例对象的__proto__属性指向了构造函数的原型对象</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="mf">3.</span><span class="nx">构造函数的原型对象的constructor属性指向了构造函数</span><span class="p">,</span><span class="nx">实例对象的原型的constructor属性也指向了构造函数</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="mf">1.</span><span class="nx">构造函数的prototype属性指向了构造函数原型对象</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="mf">2.</span><span class="nx">实例对象是由构造函数创建的</span><span class="p">,</span><span class="nx">实例对象的__proto__属性指向了构造函数的原型对象</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="mf">3.</span><span class="nx">构造函数的原型对象的constructor属性指向了构造函数</span><span class="p">,</span><span class="nx">实例对象的原型的constructor属性也指向了构造函数</span>
 </code></pre></div>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img4.png" /></p>
+<p><img alt="" src="web/JavaScript/images/img4.png" /></p>
 <h3 id="_11">原型链和成员的查找机制</h3>
 <p>任何对象都有原型对象,也就是prototype属性,任何原型对象也是一个对象,该对象就有__proto__属性,这样一层一层往上找,就形成了一条链,我们称此为原型链;</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性。
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>如果没有就查找它的原型（也就是 __proto__指向的 prototype 原型对象）。
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>如果还没有就查找原型对象的原型（Object的原型对象）。
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>依此类推一直找到 Object 为止（null）。
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>__proto__对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性。
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>如果没有就查找它的原型（也就是 __proto__指向的 prototype 原型对象）。
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>如果还没有就查找原型对象的原型（Object的原型对象）。
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>依此类推一直找到 Object 为止（null）。
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>__proto__对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线。
 </code></pre></div>
 <h3 id="this">原型对象中this指向</h3>
 <p>构造函数中的this和原型对象的this,都指向我们new出来的实例对象</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">function</span> <span class="nx">Star</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="k">this</span><span class="p">.</span><span class="nx">uname</span> <span class="o">=</span> <span class="nx">uname</span><span class="p">;</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="p">}</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="kd">var</span> <span class="nx">that</span><span class="p">;</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="nx">Star</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sing</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;我会唱歌&#39;</span><span class="p">);</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>    <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="p">}</span>
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="kd">var</span> <span class="nx">ldh</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Star</span><span class="p">(</span><span class="s1">&#39;刘德华&#39;</span><span class="p">,</span> <span class="mf">18</span><span class="p">);</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="c1">// 1. 在构造函数中,里面this指向的是对象实例 ldh</span>
-<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">that</span> <span class="o">===</span> <span class="nx">ldh</span><span class="p">);</span><span class="c1">//true</span>
-<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="c1">// 2.原型对象函数里面的this 指向的是 实例对象 ldh</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">function</span> <span class="nx">Star</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="k">this</span><span class="p">.</span><span class="nx">uname</span> <span class="o">=</span> <span class="nx">uname</span><span class="p">;</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="p">}</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="kd">var</span> <span class="nx">that</span><span class="p">;</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="nx">Star</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sing</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;我会唱歌&#39;</span><span class="p">);</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="p">}</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="kd">var</span> <span class="nx">ldh</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Star</span><span class="p">(</span><span class="s1">&#39;刘德华&#39;</span><span class="p">,</span> <span class="mf">18</span><span class="p">);</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="c1">// 1. 在构造函数中,里面this指向的是对象实例 ldh</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">that</span> <span class="o">===</span> <span class="nx">ldh</span><span class="p">);</span><span class="c1">//true</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="c1">// 2.原型对象函数里面的this 指向的是 实例对象 ldh</span>
 </code></pre></div>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img6.png" /></p>
 <h3 id="_12">通过原型为数组扩展内置方法</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>   <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>   <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>   <span class="nx">sum</span> <span class="o">+=</span> <span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>   <span class="p">}</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>   <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a> <span class="p">};</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a> <span class="c1">//此时数组对象中已经存在sum()方法了  可以始终 数组.sum()进行数据的求</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>   <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>   <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>   <span class="nx">sum</span> <span class="o">+=</span> <span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>   <span class="p">}</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>   <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a> <span class="p">};</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a> <span class="c1">//此时数组对象中已经存在sum()方法了  可以始终 数组.sum()进行数据的求</span>
 </code></pre></div>
 <h2 id="_13">继承</h2>
 <h3 id="call">call()</h3>
@@ -1715,75 +1715,70 @@
 <li>call()可以调用函数</li>
 <li>call()可以修改this的指向,使用call()的时候 参数一是修改后的this指向,参数2,参数3..使用逗号隔开连接</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a> <span class="kd">function</span> <span class="nx">fn</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">);</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="p">}</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>  <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;andy&#39;</span>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>  <span class="p">};</span>
-<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>  <span class="nx">fn</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span><span class="c1">//调用了函数此时的this指向了对象o,</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a> <span class="kd">function</span> <span class="nx">fn</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">);</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="p">}</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>  <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;andy&#39;</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>  <span class="p">};</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>  <span class="nx">fn</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span><span class="c1">//调用了函数此时的this指向了对象o,</span>
 </code></pre></div>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img10.png" /></p>
 <h3 id="_14">子构造函数继承父构造函数中的属性</h3>
 <ol>
 <li>先定义一个父构造函数</li>
 <li>再定义一个子构造函数</li>
 <li>子构造函数继承父构造函数的属性(使用call方法)</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a> <span class="c1">// 1. 父构造函数</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a> <span class="kd">function</span> <span class="nx">Father</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>   <span class="c1">// this 指向父构造函数的对象实例</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>   <span class="k">this</span><span class="p">.</span><span class="nx">uname</span> <span class="o">=</span> <span class="nx">uname</span><span class="p">;</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>   <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a> <span class="p">}</span>
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>  <span class="c1">// 2 .子构造函数 </span>
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="kd">function</span> <span class="nx">Son</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">score</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>  <span class="c1">// this 指向子构造函数的对象实例</span>
-<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>  <span class="mf">3.</span><span class="nx">使用call方式实现子继承父的属性</span>
-<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>  <span class="nx">Father</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">);</span>
-<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>  <span class="k">this</span><span class="p">.</span><span class="nx">score</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
-<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="p">}</span>
-<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="kd">var</span> <span class="nx">son</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Son</span><span class="p">(</span><span class="s1">&#39;刘德华&#39;</span><span class="p">,</span> <span class="mf">18</span><span class="p">,</span> <span class="mf">100</span><span class="p">);</span>
-<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">son</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a> <span class="c1">// 1. 父构造函数</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a> <span class="kd">function</span> <span class="nx">Father</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>   <span class="c1">// this 指向父构造函数的对象实例</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>   <span class="k">this</span><span class="p">.</span><span class="nx">uname</span> <span class="o">=</span> <span class="nx">uname</span><span class="p">;</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>   <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a> <span class="p">}</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>  <span class="c1">// 2 .子构造函数 </span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="kd">function</span> <span class="nx">Son</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">score</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>  <span class="c1">// this 指向子构造函数的对象实例</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>  <span class="mf">3.</span><span class="nx">使用call方式实现子继承父的属性</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>  <span class="nx">Father</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">);</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>  <span class="k">this</span><span class="p">.</span><span class="nx">score</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="p">}</span>
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="kd">var</span> <span class="nx">son</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Son</span><span class="p">(</span><span class="s1">&#39;刘德华&#39;</span><span class="p">,</span> <span class="mf">18</span><span class="p">,</span> <span class="mf">100</span><span class="p">);</span>
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">son</span><span class="p">);</span>
 </code></pre></div>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img11.png" /></p>
 <h3 id="_15">借用原型对象继承方法</h3>
 <ol>
 <li>先定义一个父构造函数</li>
 <li>再定义一个子构造函数</li>
 <li>子构造函数继承父构造函数的属性(使用call方法)</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1">// 1. 父构造函数</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="kd">function</span> <span class="nx">Father</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>  <span class="c1">// this 指向父构造函数的对象实例</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>  <span class="k">this</span><span class="p">.</span><span class="nx">uname</span> <span class="o">=</span> <span class="nx">uname</span><span class="p">;</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="p">}</span>
-<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="nx">Father</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">money</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">100000</span><span class="p">);</span>
-<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a> <span class="p">};</span>
-<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a> <span class="c1">// 2 .子构造函数 </span>
-<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>  <span class="kd">function</span> <span class="nx">Son</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">score</span><span class="p">)</span> <span class="p">{</span>
-<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>      <span class="c1">// this 指向子构造函数的对象实例</span>
-<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>      <span class="nx">Father</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">);</span>
-<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>      <span class="k">this</span><span class="p">.</span><span class="nx">score</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
-<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>  <span class="p">}</span>
-<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="c1">// Son.prototype = Father.prototype;  这样直接赋值会有问题,如果修改了子原型对象,父原型对象也会跟着一起变化</span>
-<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>  <span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Father</span><span class="p">();</span>
-<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>  <span class="c1">// 如果利用对象的形式修改了原型对象,别忘了利用constructor 指回原来的构造函数</span>
-<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>  <span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">constructor</span> <span class="o">=</span> <span class="nx">Son</span><span class="p">;</span>
-<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>  <span class="c1">// 这个是子构造函数专门的方法</span>
-<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>  <span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">exam</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;孩子要考试&#39;</span><span class="p">);</span>
-<a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>
-<a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>  <span class="p">}</span>
-<a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>  <span class="kd">var</span> <span class="nx">son</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Son</span><span class="p">(</span><span class="s1">&#39;刘德华&#39;</span><span class="p">,</span> <span class="mf">18</span><span class="p">,</span> <span class="mf">100</span><span class="p">);</span>
-<a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">son</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1">// 1. 父构造函数</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kd">function</span> <span class="nx">Father</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>  <span class="c1">// this 指向父构造函数的对象实例</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>  <span class="k">this</span><span class="p">.</span><span class="nx">uname</span> <span class="o">=</span> <span class="nx">uname</span><span class="p">;</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="p">}</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="nx">Father</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">money</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">100000</span><span class="p">);</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a> <span class="p">};</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a> <span class="c1">// 2 .子构造函数 </span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>  <span class="kd">function</span> <span class="nx">Son</span><span class="p">(</span><span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">score</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>      <span class="c1">// this 指向子构造函数的对象实例</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>      <span class="nx">Father</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">uname</span><span class="p">,</span> <span class="nx">age</span><span class="p">);</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>      <span class="k">this</span><span class="p">.</span><span class="nx">score</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>  <span class="p">}</span>
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="c1">// Son.prototype = Father.prototype;  这样直接赋值会有问题,如果修改了子原型对象,父原型对象也会跟着一起变化</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>  <span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Father</span><span class="p">();</span>
+<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>  <span class="c1">// 如果利用对象的形式修改了原型对象,别忘了利用constructor 指回原来的构造函数</span>
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a>  <span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">constructor</span> <span class="o">=</span> <span class="nx">Son</span><span class="p">;</span>
+<a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>  <span class="c1">// 这个是子构造函数专门的方法</span>
+<a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a>  <span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">exam</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;孩子要考试&#39;</span><span class="p">);</span>
+<a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a>
+<a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a>  <span class="p">}</span>
+<a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a>  <span class="kd">var</span> <span class="nx">son</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Son</span><span class="p">(</span><span class="s1">&#39;刘德华&#39;</span><span class="p">,</span> <span class="mf">18</span><span class="p">,</span> <span class="mf">100</span><span class="p">);</span>
+<a id="__codelineno-25-26" name="__codelineno-25-26" href="#__codelineno-25-26"></a>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">son</span><span class="p">);</span>
 </code></pre></div>
-<p>如上代码结果如图:</p>
-<p><img alt="" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\04-JavaScript高级资料\JavaScript 高级_day02\4-笔记\images\img12.png" /></p>
-<h2 id="_16"></h2>
 
   <hr>
 <div class="md-source-file">

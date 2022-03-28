@@ -746,34 +746,27 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    变量的作用域复习
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
     什么是闭包
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     闭包的作用
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     闭包的案例
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     案例
   </a>
   
@@ -1072,34 +1065,27 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    变量的作用域复习
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
     什么是闭包
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     闭包的作用
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     闭包的案例
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     案例
   </a>
   
@@ -1130,14 +1116,13 @@
   <h1>闭包</h1>
 
 <h2 id="_1">闭包</h2>
-<h3 id="_2">变量的作用域复习</h3>
 <p>变量根据作用域的不同分为两种：全局变量和局部变量。</p>
 <ol>
 <li>函数内部可以使用全局变量。</li>
 <li>函数外部不可以使用局部变量。</li>
 <li>当函数执行完毕，本作用域内的局部变量会销毁。</li>
 </ol>
-<h3 id="_3">什么是闭包</h3>
+<h3 id="_2">什么是闭包</h3>
 <p>闭包（closure）指有权访问另一个函数作用域中变量的函数。简单理解就是 ，一个作用域可以访问另外一个函数内部的局部变量。 </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="kd">function</span> <span class="nx">fn1</span><span class="p">(</span> <span class="p">){</span>    <span class="c1">// fn1就是闭包函数</span>
@@ -1150,7 +1135,7 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="nx">fn1</span> <span class="p">(</span> <span class="p">)</span> <span class="p">;</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="o">&lt;</span><span class="err">/ script&gt;</span>
 </code></pre></div>
-<h3 id="_4">闭包的作用</h3>
+<h3 id="_3">闭包的作用</h3>
 <p>作用：延伸变量的作用范围。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a> <span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
@@ -1162,7 +1147,7 @@
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">();</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nx">f</span><span class="p">();</span>
 </code></pre></div>
-<h3 id="_5">闭包的案例</h3>
+<h3 id="_4">闭包的案例</h3>
 <ol>
 <li>利用闭包的方式得到当前li 的索引号</li>
 </ol>
@@ -1216,7 +1201,7 @@
 <a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">car</span><span class="p">.</span><span class="nx">price</span><span class="p">(</span><span class="mf">5</span><span class="p">));</span> <span class="c1">// 23</span>
 <a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">car</span><span class="p">.</span><span class="nx">yd</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span> <span class="c1">// 33</span>
 </code></pre></div>
-<h3 id="_6">案例</h3>
+<h3 id="_5">案例</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a> <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;The Window&quot;</span><span class="p">;</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   <span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>     <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;My Object&quot;</span><span class="p">,</span>

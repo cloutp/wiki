@@ -1155,16 +1155,17 @@
 <p><strong>异步任务相关回调函数添加到任务队列中（任务队列也称为消息队列)。</strong></p>
 <div class="admonition note inline end">
 <p class="admonition-title">Note</p>
+<p><img alt="" src="web/JavaScript/images/image-20220328110941989.png" /></p>
 </div>
-<p>​   <img src="C:\Users\HS_HG\AppData\Roaming\Typora\typora-user-images\image-20220328110941989.png" alt="image-20220328110941989" style="zoom: 67%;" /></p>
+<p>​   </p>
 <h3 id="js">JS执行机制（事件循环）</h3>
-<p><img src="C:\Users\HS_HG\AppData\Roaming\Typora\typora-user-images\image-20220328111036482.png" alt="image-20220328111036482" style="zoom:67%;" /></p>
+<p><img alt="" src="web/JavaScript/images/image-20220328111036482.png" /></p>
 <ol>
 <li>先执行执行栈中的同步任务。</li>
 <li>异步任务(回调函数)放入任务队列中。</li>
 <li>一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。</li>
 </ol>
-<p><img alt="1551435398306" src="D:\note\【27】源码+课件+软件\07-10 JavaScript网页编程\02-WebAPI编程资料\Web APIs-day04\4-笔记\images\1551435398306.png" /></p>
+<p><img alt="1551435398306" src="web/JavaScript/images/1551435398306.png" /></p>
 <p>由于主线程不断的重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为<strong>事件循环（ event loop).</strong></p>
 
   <hr>
