@@ -17,3 +17,6 @@
 .twitter {
   color: #1DA1F2;
 }
+body > div.md-container > footer{
+  z-index: 1000;
+}
