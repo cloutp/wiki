@@ -1,0 +1,154 @@
+site_name: CLOUTP
+site_description: 测试一下
+site_author: cloutp
+
+# 主题配置
+theme:
+  name: material
+  # 语言
+  language: zh
+  icon:
+    repo: fontawesome/brands/git-alt 
+  palette:
+    # 设置主题色
+    primary: blue
+    # 设置强调色
+    accent: blue
+  features:
+    - content.tabs.link
+    - navigation.tabs
+    - toc.follow
+    # 返回顶部
+    - navigation.top
+  admonition:
+      note: fontawesome/solid/sticky-note
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/info-circle
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/question-circle
+      warning: fontawesome/solid/exclamation-triangle
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
+plugins:
+  - tags:
+      tags_file: tags.md
+  - git-revision-date-localized:
+      type: timeago
+      enable_creation_date: true
+      fallback_to_build_date: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/tablesort.js
+  - javascripts/mathjax.js
+  - javascripts/extra.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  
+extra:
+  social: 
+    - icon: fontawesome/brands/docker
+      link: https://twitter.com/   
+    - icon: fontawesome/brands/github
+      link: https://twitter.com/   
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<email-address>
+
+# python markdown
+markdown_extensions:
+  - abbr
+  - pymdownx.snippets
+  # 警告框
+  - admonition
+  - pymdownx.details
+  # 注释
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - footnotes
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+edit_uri: ""
+copyright: Copyright &copy; 2016 - 2020 
+repo_url: https://github.com/cloutp/wiki.git
+
+
+
+# 页面树
+nav:
+  - 首页: index.md
+  - 前端:
+    - 介绍: web/index.md
+    - HTML: 
+      - 介绍: web/HTML/index.md
+      - 标签: web/HTML/tag.md
+      - 结构标签: web/HTML/structure_tag.md
+      - head下标签: web/HTML/head.md
+      - body下标签: web/HTML/body.md
+      - iframe标签: web/HTML/iframe.md
+      - 符号代码: web/HTML/code.md
+      - meta标签: web/HTML/meta.md
+      - HTML5: web/HTML/html5.md
+      - 颜色: web/HTML/color.md
+    # - CSS:
+    - JavaScript:
+      - 介绍: web/JavaScript/index.md
+      - 变量: web/JavaScript/01变量.md 
+      - 数据类型: 
+        - 简单数据类型: web/JavaScript/02a简单数据类型.md
+        - 复杂数据类型: web/JavaScript/02b复杂数据类型.md 
+      - 运算符: web/JavaScript/03算数运算符.md
+      - 流程控制: web/JavaScript/04流程控制.md 
+      - 数组: web/JavaScript/05数组.md 
+      - 函数: 
+        - 函数的使用: web/JavaScript/06a函数的使用.md
+        - 函数参数: web/JavaScript/06b函数的参数.md
+        - 返回值: web/JavaScript/06c函数的返回值.md
+        - 作用域:  web/JavaScript/06d作用域.md
+        - 闭包: web/JavaScript/06f闭包.md  
+      - this指向: web/JavaScript/06ethis指向.md
+      - 预编译: web/JavaScript/08预编译.md
+      - 对象: web/JavaScript/09a对象.md 
+      - 内置对象: web/JavaScript/09b内置对象.md 
+      - ES5新增方法: web/JavaScript/10ES5新增方法.md 
+      - 严格模式: web/JavaScript/11严格模式.md
+      - DOM: web/JavaScript/11DOM.md 
+      - 事件: web/JavaScript/12事件.md 
+      - BOM:  web/JavaScript/13BOM.md
+      - JS异步: web/JavaScript/14jsasync.md
+      - 动画: web/JavaScript/15animae.md
+      - 面向对象: web/JavaScript/18面向对象.md
+      - 正则: web/JavaScript/20正则.md
+      - 小技巧: web/JavaScript/41小技巧.md
+      - 扩展: web/JavaScript/40扩展阅读.md
+  # - 后端:
+  # - 工具:
+  - 关于: about.md
