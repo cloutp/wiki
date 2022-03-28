@@ -1145,7 +1145,8 @@
 <h4 id="_4"><strong>同步任务</strong></h4>
 <p>同步任务都在主线程上执行，形成一个执行栈。</p>
 <h3 id="_5">异步任务</h3>
-<p>JS的异步是通过回调函数实现的。
+<p><img align="right" alt="" src="../images/image-20220328110941989.png" width="150" />
+JS的异步是通过回调函数实现的。
 —般而言，异步任务有以下三种类型:</p>
 <ol>
 <li>普通事件，如click、resize等</li>
@@ -1153,19 +1154,16 @@
 <li>定时器，包括setlnterval、setTimeout等</li>
 </ol>
 <p><strong>异步任务相关回调函数添加到任务队列中（任务队列也称为消息队列)。</strong></p>
-<div class="admonition note inline end">
-<p class="admonition-title">Note</p>
-<p><img alt="" src="web/JavaScript/images/image-20220328110941989.png" /></p>
-</div>
-<p>​   </p>
+<hr \>
+<p>​ </p>
 <h3 id="js">JS执行机制（事件循环）</h3>
-<p><img alt="" src="web/JavaScript/images/image-20220328111036482.png" /></p>
+<p><img alt="" src="/web/JavaScript/images/image-20220328111036482.png" /></p>
 <ol>
 <li>先执行执行栈中的同步任务。</li>
 <li>异步任务(回调函数)放入任务队列中。</li>
 <li>一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。</li>
 </ol>
-<p><img alt="1551435398306" src="web/JavaScript/images/1551435398306.png" /></p>
+<p><img alt="1551435398306" src="/web/JavaScript/images/1551435398306.png" /></p>
 <p>由于主线程不断的重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为<strong>事件循环（ event loop).</strong></p>
 
   <hr>
