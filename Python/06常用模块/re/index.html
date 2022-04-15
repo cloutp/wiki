@@ -1,0 +1,5220 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="测试一下">
+      
+      
+        <meta name="author" content="cloutp">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>正则 - CLOUTP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="CLOUTP" class="md-header__button md-logo" aria-label="CLOUTP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CLOUTP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              正则
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cloutp/wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      首页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../web/" class="md-tabs__link">
+        前端
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Python
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../about/" class="md-tabs__link">
+      关于
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CLOUTP" class="md-nav__button md-logo" aria-label="CLOUTP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    CLOUTP
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cloutp/wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          前端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="前端" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          前端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          HTML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HTML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/tag/" class="md-nav__link">
+        标签
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/structure_tag/" class="md-nav__link">
+        结构标签
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/head/" class="md-nav__link">
+        head下标签
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/body/" class="md-nav__link">
+        body下标签
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/iframe/" class="md-nav__link">
+        iframe标签
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/code/" class="md-nav__link">
+        符号代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/meta/" class="md-nav__link">
+        meta标签
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/html5/" class="md-nav__link">
+        HTML5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/HTML/color/" class="md-nav__link">
+        颜色
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CSS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          CSS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/CSS/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/CSS/01%E9%80%89%E6%8B%A9%E5%99%A8/" class="md-nav__link">
+        选择器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/CSS/02css%E5%B1%9E%E6%80%A7/" class="md-nav__link">
+        属性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/CSS/03%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        盒子模型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/CSS/04css%E5%B8%83%E5%B1%80/" class="md-nav__link">
+        页面布局
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/CSS/05%E4%B8%A4%E4%B8%AAbug/" class="md-nav__link">
+        两个BUG
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/CSS/06css%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        简单技巧
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/CSS/07css3%E5%8A%A8%E7%94%BB/" class="md-nav__link">
+        动画
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/CSS/08CSS%E6%96%B0%E5%A2%9E%E5%B1%9E%E6%80%A7/" class="md-nav__link">
+        CSS3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          JavaScript
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScript" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/01%E5%8F%98%E9%87%8F/" class="md-nav__link">
+        变量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_3" type="checkbox" id="__nav_2_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_3">
+          数据类型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据类型" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          数据类型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/02a%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        简单数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/02b%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        复杂数据类型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/03%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/04%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/05%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_7" type="checkbox" id="__nav_2_4_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_7">
+          函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="函数" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/06a%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        函数的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/06b%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0/" class="md-nav__link">
+        函数参数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/06c%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC/" class="md-nav__link">
+        返回值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/06d%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="md-nav__link">
+        作用域
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/06f%E9%97%AD%E5%8C%85/" class="md-nav__link">
+        闭包
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/06ethis%E6%8C%87%E5%90%91/" class="md-nav__link">
+        this指向
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/08%E9%A2%84%E7%BC%96%E8%AF%91/" class="md-nav__link">
+        预编译
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/09a%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/09b%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        内置对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/10ES5%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        ES5新增方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/11%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        严格模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/11DOM/" class="md-nav__link">
+        DOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/12%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+        事件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/13BOM/" class="md-nav__link">
+        BOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/14jsasync/" class="md-nav__link">
+        JS异步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/15animae/" class="md-nav__link">
+        动画
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/18%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/20%E6%AD%A3%E5%88%99/" class="md-nav__link">
+        正则
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/21ES6/" class="md-nav__link">
+        ES6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/41%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        小技巧
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/JavaScript/40%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB/" class="md-nav__link">
+        扩展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          jQuery
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="jQuery" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          jQuery
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/jQuery/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/jQuery/01%E9%80%89%E6%8B%A9%E5%99%A8/" class="md-nav__link">
+        选择器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/jQuery/02%E6%A0%B7%E5%BC%8F%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        样式操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/jQuery/03%E6%95%88%E6%9E%9C/" class="md-nav__link">
+        效果
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/jQuery/04%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        属性操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/jQuery/05%E5%85%83%E7%B4%A0%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        元素操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/jQuery/06%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+        事件操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/jQuery/10%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/jQuery/11todo%E6%A1%88%E4%BE%8B/" class="md-nav__link">
+        案例
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Ajax
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Ajax" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Ajax
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Ajax/" class="md-nav__link">
+        Ajax介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Ajax/fromdata/" class="md-nav__link">
+        FromData对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Ajax/ajaxdemo/" class="md-nav__link">
+        Ajax演示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Ajax/jqueryajax/" class="md-nav__link">
+        Ajax-Jquery
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Node
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Node" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Node
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Node/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Node/%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        系统模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Node/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        异步编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Node/web%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        web服务
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Node/%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        第三方模块
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Vue
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vue" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Vue
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        简单使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue%E6%8C%87%E4%BB%A4/" class="md-nav__link">
+        指令
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue2%E9%85%8D%E7%BD%AE%E9%A1%B9/" class="md-nav__link">
+        vue2配置项
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue3%E7%BB%84%E5%90%88%E5%BC%8FAPI/" class="md-nav__link">
+        vue3组合式API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="md-nav__link">
+        vue生命周期
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E8%AE%AF/" class="md-nav__link">
+        vue组件之间通讯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue%E6%8F%92%E4%BB%B6/" class="md-nav__link">
+        vue插件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue%E5%8A%A8%E7%94%BB%E5%92%8C%E8%BF%87%E6%B8%A1/" class="md-nav__link">
+        vue动画和过渡
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue%E6%8F%92%E6%A7%BD/" class="md-nav__link">
+        vue插槽
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vuex/" class="md-nav__link">
+        vuex
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vueRouter/" class="md-nav__link">
+        vueRouter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue.config/" class="md-nav__link">
+        配置文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web/Vue/vue%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        vue原理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          python介绍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="python介绍" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          python介绍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01Python%E4%BB%8B%E7%BB%8D/01Python%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01Python%E4%BB%8B%E7%BB%8D/02Python%E8%A7%A3%E9%87%8A%E5%99%A8/" class="md-nav__link">
+        解释器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01Python%E4%BB%8B%E7%BB%8D/03pip%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        pip使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01Python%E4%BB%8B%E7%BB%8D/04vscode%E6%90%AD%E5%BB%BAPython%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        VScode配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01Python%E4%BB%8B%E7%BB%8D/05Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        虚拟环境
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          语法学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="语法学习" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          语法学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/01%E5%8F%98%E9%87%8F/" class="md-nav__link">
+        变量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/02%E5%B8%B8%E9%87%8F/" class="md-nav__link">
+        常量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/03%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        垃圾回收
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_4" type="checkbox" id="__nav_3_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_4">
+          数据类型及其方法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据类型及其方法" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          数据类型及其方法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/05a%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        数字
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/05b%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        字符串
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/05c%E5%88%97%E8%A1%A8/" class="md-nav__link">
+        列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/05d%E5%85%83%E7%BB%84/" class="md-nav__link">
+        元组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/05e%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/05f%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/05g%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98/" class="md-nav__link">
+        可变与不可变
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/07Python%E4%BA%A4%E4%BA%92/" class="md-nav__link">
+        程序交互
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/08%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/09%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/11Python%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="md-nav__link">
+        深浅拷贝
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/12%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="md-nav__link">
+        异常处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/13%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" class="md-nav__link">
+        字符编码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/02变量回收.md" class="md-nav__link">
+        变量回收机制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/03字符变量.md" class="md-nav__link">
+        字符编码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/04文件处理.md" class="md-nav__link">
+        文件处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_14" type="checkbox" id="__nav_3_3_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_14">
+          函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="函数" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_14">
+          <span class="md-nav__icon md-icon"></span>
+          函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/05a函数基础.md" class="md-nav__link">
+        函数基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/05b函数进阶.md" class="md-nav__link">
+        函数进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/05c装饰器.md" class="md-nav__link">
+        装饰器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/05d迭代器.md" class="md-nav__link">
+        迭代器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/05e生成器.md" class="md-nav__link">
+        生成器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/05f内置函数.md" class="md-nav__link">
+        内置函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/05g匿名函数.md" class="md-nav__link">
+        匿名函数
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/06模块和包.md" class="md-nav__link">
+        模块和包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/07常用模块.md" class="md-nav__link">
+        常用模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_17" type="checkbox" id="__nav_3_3_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_17">
+          面向对象
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="面向对象" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_17">
+          <span class="md-nav__icon md-icon"></span>
+          面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/08a面向对象.md" class="md-nav__link">
+        面向对象介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/08b三大特征.md" class="md-nav__link">
+        面向对象三大特征
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/08c进阶.md" class="md-nav__link">
+        面向对象进阶
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/09mixin.md" class="md-nav__link">
+        mixins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/99补充.md" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          文件处理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文件处理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          文件处理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/01%E5%9F%BA%E6%9C%AC%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        文件操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/02%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        操作模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/03%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        文件操作方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/04%E6%96%87%E4%BB%B6%E6%8C%87%E9%92%88/" class="md-nav__link">
+        文件指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/05%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        修改文件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="函数" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/01%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        函数定义
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/03%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" class="md-nav__link">
+        函数参数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/04%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4/" class="md-nav__link">
+        名称空间
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/05%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="md-nav__link">
+        作用域
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/07%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E9%97%AD%E5%8C%85/" class="md-nav__link">
+        函数对象与闭包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/10%E8%A3%85%E9%A5%B0%E5%99%A8/" class="md-nav__link">
+        装饰器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/11%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="md-nav__link">
+        迭代器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/12%E4%B8%89%E5%85%83%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        三元表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/13%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F/" class="md-nav__link">
+        列表推导式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/15%E7%94%9F%E6%88%90%E5%99%A8/" class="md-nav__link">
+        生成器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/16%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        匿名函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04%E5%87%BD%E6%95%B0/18%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        面向过程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          模块介绍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模块介绍" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          模块介绍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05Python%E6%A8%A1%E5%9D%97/01%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05Python%E6%A8%A1%E5%9D%97/02%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/" class="md-nav__link">
+        导入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05Python%E6%A8%A1%E5%9D%97/03py%E6%96%87%E4%BB%B6%E4%B8%A4%E7%A7%8D%E7%94%A8%E9%80%94/" class="md-nav__link">
+        文件分类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05Python%E6%A8%A1%E5%9D%97/04%E5%8C%85/" class="md-nav__link">
+        包
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          常用模块
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="常用模块" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          常用模块
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        os
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sys/" class="md-nav__link">
+        sys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xml/" class="md-nav__link">
+        xml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pathlib/" class="md-nav__link">
+        pathlib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../random/" class="md-nav__link">
+        random
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typing/" class="md-nav__link">
+        typing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pymysql/" class="md-nav__link">
+        pymysql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subprocess/" class="md-nav__link">
+        subprocess
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shuti/" class="md-nav__link">
+        解压缩
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          正则
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        正则
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数量词的贪婪模式与非贪婪模式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    反斜杠的困扰
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    匹配模式
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%97%B6%E9%97%B4/" class="md-nav__link">
+        时间
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/" class="md-nav__link">
+        算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BA%8F%E5%88%97%E5%8C%96/" class="md-nav__link">
+        序列化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BB%98%E5%9B%BE/" class="md-nav__link">
+        绘图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%89%A9%E5%B1%95/" class="md-nav__link">
+        计算拓展
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/" class="md-nav__link">
+        pandas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9B%86%E5%90%88%E6%89%A9%E5%B1%95/" class="md-nav__link">
+        集合扩展
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_8" type="checkbox" id="__nav_3_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_8">
+          面向对象
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="面向对象" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          面向对象
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/01%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/02%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        类与对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/03%E5%AF%B9%E8%B1%A1%E7%8B%AC%E6%9C%89%E7%89%B9%E5%BE%81/" class="md-nav__link">
+        对象特征
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/06%E7%B1%BB%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a面向对象/ 08类的继承.md" class="md-nav__link">
+        继承
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/10%E7%B1%BB%E7%9A%84%E7%BB%84%E5%90%88/" class="md-nav__link">
+        组合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/11%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        菱形继承
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/12super%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        super方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/13%E7%B1%BB%E7%9A%84%E5%A4%9A%E6%80%81%E5%92%8C%E5%A4%9A%E6%80%81%E6%80%A7/" class="md-nav__link">
+        多态
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/14%E7%B1%BB%E7%9A%84%E5%B0%81%E8%A3%85/" class="md-nav__link">
+        封装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/15%E7%B1%BB%E7%9A%84propetty%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        propetty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/16%E7%B1%BB%E7%9A%84%E7%BB%91%E5%AE%9A%E5%92%8C%E9%9D%9E%E7%BB%91%E5%AE%9A%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        绑定与非绑定方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/18%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07a%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/19%E5%8E%9F%E7%B1%BB/" class="md-nav__link">
+        元类
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_9" type="checkbox" id="__nav_3_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_9">
+          对象高级
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="对象高级" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_9">
+          <span class="md-nav__icon md-icon"></span>
+          对象高级
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/1-isinstance%E5%92%8Cissubclass/" class="md-nav__link">
+        isinstance、issubclass
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/2-%E5%8F%8D%E5%B0%84%28hasattr%E5%92%8Cgetattr%E5%92%8Csetattr%E5%92%8Cdelattr%29/" class="md-nav__link">
+        hasattr、getattr、setattr、delattr
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/3-__setattr__%E5%92%8C__delattr__%E5%92%8C__getattr__/" class="md-nav__link">
+        __setattr__、__delattr__、__getattr__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/4-__getattribute__/" class="md-nav__link">
+        __getattribute__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/5-%E6%8F%8F%E8%BF%B0%E7%AC%A6%28__get__%E5%92%8C__set__%E5%92%8C__delete__%29/" class="md-nav__link">
+        __get__、__set__、__delete__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/6-__setitem__%E5%92%8C__getitem%E5%92%8C__delitem__d/" class="md-nav__link">
+        __setitem__、__getitem、__delitem__d
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/7-__format__/" class="md-nav__link">
+        __format__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/8-__del__/" class="md-nav__link">
+        __del__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/9-__slots__/" class="md-nav__link">
+        __slots__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/10-__doc__/" class="md-nav__link">
+        __doc__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/11-__call__/" class="md-nav__link">
+        __call__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/12-__init__%E5%92%8C__new__/" class="md-nav__link">
+        __init__、__new__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/13-__str__%E5%92%8C__repr__/" class="md-nav__link">
+        __str__、__repr__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/14-%E5%AE%9E%E7%8E%B0%E8%BF%AD%E4%BB%A3%E5%99%A8%28__next__%E5%92%8C__iter__%29/" class="md-nav__link">
+        __next__、__iter__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/15-__module__%E5%92%8C__class__/" class="md-nav__link">
+        __module__、__class__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/16-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%28__enter__%E5%92%8C__exit__%29/" class="md-nav__link">
+        __enter__、__exit__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/17-%E5%85%83%E7%B1%BB%28metaclass%29/" class="md-nav__link">
+        metaclass
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/19-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E5%AE%9E%E6%88%98%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        单例模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07b%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7/20-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E5%B0%8F%E7%BB%93/" class="md-nav__link">
+        小结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_10" type="checkbox" id="__nav_3_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_10">
+          网络编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="网络编程" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_10">
+          <span class="md-nav__icon md-icon"></span>
+          网络编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/01%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        传输层协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/02Socket%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        socket介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/03%E5%9F%BA%E4%BA%8ETCP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        TCP协议通讯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/04%E7%B2%98%E5%8C%85/" class="md-nav__link">
+        粘包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/05%E7%B2%98%E5%8C%85%E8%A7%A3%E5%86%B3/" class="md-nav__link">
+        粘包解决
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/06UDP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        UDP协议通讯
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11" type="checkbox" id="__nav_3_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_11">
+          并发编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="并发编程" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_11">
+          <span class="md-nav__icon md-icon"></span>
+          并发编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/01%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        进程介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/02%E5%BC%80%E5%90%AF%E8%BF%9B%E7%A8%8B/" class="md-nav__link">
+        开启进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/03%E8%BF%9B%E7%A8%8B%E9%94%81/" class="md-nav__link">
+        进程锁
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/04%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/" class="md-nav__link">
+        进程通信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/05%E7%BA%BF%E7%A8%8B%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        线程介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/06GLIL/" class="md-nav__link">
+        GIL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/07%E5%BC%80%E5%90%AF%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        开启线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/08%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        线程相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/09%E7%BA%BF%E7%A8%8B%E9%98%9F%E5%88%97/" class="md-nav__link">
+        线程队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/10%E6%B1%A0/" class="md-nav__link">
+        池
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/11%E5%8D%8F%E7%A8%8B%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        协程介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/12greenlet%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        greenlet模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/13gevent%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        gevent模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/14IO%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        IO模型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        关于
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数量词的贪婪模式与非贪婪模式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    反斜杠的困扰
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    匹配模式
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  
+
+
+
+<h1 id="_1">正则表达式</h1>
+<p>正则表达式本身是一种小型的、高度专业化的编程语言，它并不是Python的一部分。正则表达式是用于处理字符串的强大工具，拥有自己独特的语法以及一个独立的处理引擎，效率上可能不如str自带的方法，但功能十分强大。得益于这一点，在提供了正则表达式的语言里，正则表达式的语法都是一样的，区别只在于不同的编程语言实现支持的语法数量不同；但不用担心，不被支持的语法通常是不常用的部分。如果已经在其他语言里使用过正则表达式，只需要简单看一看就可以上手了。而在python中，通过内嵌集成re模块，程序员们可以直接调用来实现正则匹配。正则表达式模式被编译成一系列的字节码，然后由用C编写的匹配引擎执行。</p>
+<p>正则表达式的大致匹配过程是：依次拿出表达式和文本中的字符比较，如果每一个字符都能匹配，则匹配成功；一旦有匹配不成功的字符则匹配失败。如果表达式中有量词或边界，这个过程会稍微有一些不同，但也是很好理解的，看下图中的示例以及自己多使用几次就能明白。</p>
+<p>下图列出了Python支持的正则表达式元字符和语法：</p>
+<p>识别结果</p>
+<p><img alt="80re模块-匹配图.png" src=".\inages\0081Kckwgy1gm2r55r00nj30m71brdms.jpg" /></p>
+<h2 id="_2">数量词的贪婪模式与非贪婪模式</h2>
+<p>正则表达式通常用于在文本中查找匹配的字符串。Python里数量词默认是贪婪的（在少数语言里也可能是默认非贪婪），总是尝试匹配尽可能多的字符；非贪婪的则相反，总是尝试匹配尽可能少的字符。例如：正则表达式”ab<em>”如果用于查找”abbbc”，将找到”abbb”。而如果使用非贪婪的数量词”ab</em>?”，将找到”a”。</p>
+<h2 id="_3">反斜杠的困扰</h2>
+<p>与大多数编程语言相同，正则表达式里使用<code>\</code>作为转义字符，这就可能造成反斜杠困扰。假如你需要匹配文本中的字符<code>\</code>，那么使用编程语言表示的正则表达式里将需要4个反斜杠<code>\\\\</code>：前两个和后两个分别用于在编程语言里转义成反斜杠，转换成两个反斜杠后再在正则表达式里转义成一个反斜杠。Python里的原生字符串很好地解决了这个问题，这个例子中的正则表达式可以使用<code>r'\\'</code>表示。同样，匹配一个数字的<code>\\d</code>可以写成<code>r'\d'</code>。有了原生字符串，你再也不用担心是不是漏写了反斜杠，写出来的表达式也更直观。</p>
+<h2 id="_4">匹配模式</h2>
+<p>正则表达式提供了一些可用的匹配模式，比如忽略大小写、多行匹配等，这部分内容将在Pattern类的工厂方法re.compile(pattern[, flags])中一起介绍。</p>
+<h1 id="re">re模块的基本使用</h1>
+<p>正则表达式是用来匹配处理字符串的 python 中使用正则表达式需要引入re模块</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import re  # 第一步，要引入re模块
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>a = re.findall(&quot;匹配规则&quot;, &quot;这个字符串是否有匹配规则的字符&quot;)  # 第二步，调用模块函数
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>print(a)  # 以列表形式返回匹配到的字符串
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>[&#39;匹配规则&#39;]
+</code></pre></div>
+<p><strong>^元字符</strong></p>
+<p>字符串开始位置与匹配规则符合就匹配，否则不匹配</p>
+<p>匹配字符串开头。在多行模式中匹配每一行的开头（Python3+已经失效，配合compile使用）</p>
+<p>^元字符如果写到[]字符集里就是反取</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>import re
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>a = re.findall(&quot;^匹配规则&quot;, &quot;匹配规则这个字符串是否匹配&quot;)  # 字符串开始位置与匹配规则符合就匹配，否则不匹配
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>print(a)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>#打印出 [&#39;匹配规则&#39;]
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[&#39;匹配规则&#39;]
+</code></pre></div>
+<p><strong>[^a-z]反取</strong></p>
+<p>匹配出除字母外的字符，^元字符如果写到字符集里就是反取</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>import re
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>a = re.findall(&quot;[^a-z]&quot;, &quot;匹配s规则这s个字符串是否s匹配f规则则re则则则&quot;)  # 反取，匹配出除字母外的字符
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>print(a)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>[&#39;匹&#39;, &#39;配&#39;, &#39;规&#39;, &#39;则&#39;, &#39;这&#39;, &#39;个&#39;, &#39;字&#39;, &#39;符&#39;, &#39;串&#39;, &#39;是&#39;, &#39;否&#39;, &#39;匹&#39;, &#39;配&#39;, &#39;规&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;]
+</code></pre></div>
+<p><strong>$元字符</strong></p>
+<p>字符串结束位置与匹配规则符合就匹配，否则不匹配</p>
+<p>匹配字符串末尾，在多行模式中匹配每一行的末尾</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>import re
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>a = re.findall(&quot;匹配规则$&quot;, &quot;这个字符串是否匹配规则&quot;)  # 字符串结束位置与匹配规则符合就匹配，否则不匹配
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>print(a)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>[&#39;匹配规则&#39;]
+</code></pre></div>
+<p><strong>*元字符</strong></p>
+<p>需要字符串里完全符合，匹配规则，就匹配，（规则里的*元字符）前面的一个字符可以是0个或多个原本字符</p>
+<p>匹配前一个字符0或多次，贪婪匹配前导字符有多少个就匹配多少个很贪婪</p>
+<p>如果规则里只有一个分组，尽量避免用*否则会有可能匹配出空字符串</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>import re
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a># 需要字符串里完全符合，匹配规则，就匹配，（规则里的*元字符）前面的一个字符可以是0或多个原本字符
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>a = re.findall(&quot;匹配规则*&quot;, &quot;这个字符串是否匹配规则则则则则&quot;)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>print(a)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>[&#39;匹配规则则则则则&#39;]
+</code></pre></div>
+<p><strong>+元字符</strong></p>
+<p>需要字符串里完全符合，匹配规则，就匹配，（规则里的+元字符）前面的一个字符可以是1个或多个原本字符</p>
+<p>匹配前一个字符1次或无限次，贪婪匹配前导字符有多少个就匹配多少个很贪婪</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>import re
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a># 需要字符串里完全符合，匹配规则，就匹配，（规则里的+元字符）前面的一个字符可以是1个或多个原本字符
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>a = re.findall(&quot;匹配+&quot;, &quot;匹配配配配配规则这个字符串是否匹配规则则则则则&quot;)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>print(a)
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>[&#39;匹配配配配配&#39;, &#39;匹配&#39;]
+</code></pre></div>
+<p><strong>?元字符</strong>(防止贪婪匹配)</p>
+<p>需要字符串里完全符合，匹配规则，就匹配，（规则里的?元字符）前面的一个字符可以是0个或1个原本字符</p>
+<p>匹配一个字符0次或1次</p>
+<p>还有一个功能是可以防止贪婪匹配，详情见防贪婪匹配</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>import re
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a># 需要字符串里完全符合，匹配规则，就匹配，（规则里的?元字符）前面的一个字符可以是0个或1个原本字符
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>a = re.findall(&quot;匹配规则?&quot;, &quot;匹配规这个字符串是否匹配规则则则则则&quot;)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>print(a)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>[&#39;匹配规&#39;, &#39;匹配规则&#39;]
+</code></pre></div>
+<p><strong>{}元字符</strong>(范围)</p>
+<p>需要字符串里完全符合，匹配规则，就匹配，（规则里的 {} 元字符）前面的一个字符，是自定义字符数，位数的原本字符</p>
+<p>{m}匹配前一个字符m次，{m,n}匹配前一个字符m至n次，若省略n，则匹配m至无限次</p>
+<p>{0,}匹配前一个字符0或多次,等同于*元字符
+{+,}匹配前一个字符1次或无限次,等同于+元字符
+{0,1}匹配前一个字符0次或1次,等同于?元字符</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>import re
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a># {m}匹配前一个字符m次，{m,n}匹配前一个字符m至n次，若省略n，则匹配m至无限次
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>a = re.findall(&quot;匹配规则{3}&quot;, &quot;匹配规这个字符串是否匹配规则则则则则&quot;)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>print(a)
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>[&#39;匹配规则则则&#39;]
+</code></pre></div>
+<p><strong>[]元字符</strong>(字符集)</p>
+<p>需要字符串里完全符合，匹配规则，就匹配，（规则里的 [] 元字符）对应位置是[]里的任意一个字符就匹配</p>
+<p>字符集。对应的位置可以是字符集中任意字符。字符集中的字符可以逐个列出，也可以给出范围，如[abc]或[a-c]。[^abc]表示取反，即非abc。
+所有特殊字符在字符集中都失去其原有的特殊含义。用\反斜杠转义恢复特殊字符的特殊含义。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>import re
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a># 需要字符串里完全符合，匹配规则，就匹配，（规则里的 [] 元字符）对应位置是[]里的任意一个字符就匹配
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>a = re.findall(&quot;匹配[a,b,c]规则&quot;, &quot;匹配a规则这个字符串是否匹配b规则则则则则&quot;)
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>print(a)
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>[&#39;匹配a规则&#39;, &#39;匹配b规则&#39;]
+</code></pre></div>
+<p><strong>[^]</strong></p>
+<p>非，反取，匹配出除[]里面的字符，元字符如果写到字符集里就是反取</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>import re
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>a = re.findall(&quot;[^a-z]&quot;, &quot;匹配s规则这s个字符串是否s匹配f规则则re则则则&quot;)  # 反取，匹配出除字母外的字符
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>print(a)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>[&#39;匹&#39;, &#39;配&#39;, &#39;规&#39;, &#39;则&#39;, &#39;这&#39;, &#39;个&#39;, &#39;字&#39;, &#39;符&#39;, &#39;串&#39;, &#39;是&#39;, &#39;否&#39;, &#39;匹&#39;, &#39;配&#39;, &#39;规&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;]
+</code></pre></div>
+<p><strong>反斜杠后边跟普通字符实现特殊功能</strong>(预定义字符)</p>
+<p>预定义字符是在字符集和组里都是有用的</p>
+<p>\d匹配任何十进制数，它相当于类[0-9]</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>import re
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>a = re.findall(&quot;\d&quot;, &quot;匹配规则这2个字符串3是否匹配规则5则则则7则&quot;)  # \d匹配任何十进制数，它相当于类[0-9]
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>print(a)
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>[&#39;2&#39;, &#39;3&#39;, &#39;5&#39;, &#39;7&#39;]
+</code></pre></div>
+<p><strong>\d+</strong></p>
+<p>匹配一位或者多位数的数字时用</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>import re
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>a = re.findall(&quot;\d+&quot;, &quot;匹配规则这2个字符串134444是否匹配规则5则则则7则&quot;)  # \d+如果需要匹配一位或者多位数的数字时用
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>print(a)
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>[&#39;2&#39;, &#39;134444&#39;, &#39;5&#39;, &#39;7&#39;]
+</code></pre></div>
+<p><strong>\D</strong></p>
+<p>匹配任何非数字字符，它相当于类[^0-9]</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>import re
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>a = re.findall(&quot;\D&quot;, &quot;匹配规则这2个字符串3是否匹配规则5则则则7则&quot;)  # \D匹配任何非数字字符，它相当于类[^0-9]
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>print(a)
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>[&#39;匹&#39;, &#39;配&#39;, &#39;规&#39;, &#39;则&#39;, &#39;这&#39;, &#39;个&#39;, &#39;字&#39;, &#39;符&#39;, &#39;串&#39;, &#39;是&#39;, &#39;否&#39;, &#39;匹&#39;, &#39;配&#39;, &#39;规&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;]
+</code></pre></div>
+<p><strong>\s</strong></p>
+<p>匹配任何空白字符，它相当于类[\t\n\r\f\v]</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>import re
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a># \s匹配任何空白字符，它相当于类[\t\n\r\f\v]
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>a = re.findall(&quot;\s&quot;, &quot;匹配规则   这2个字符串3是否匹\n配规则5则则则7则&quot;)
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>print(a)
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>[&#39; &#39;, &#39; &#39;, &#39; &#39;, &#39;\n&#39;]
+</code></pre></div>
+<p><strong>\S</strong></p>
+<p>匹配任何非空白字符，它相当于类[^\t\n\r\f\v]</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>import re
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a># \S匹配任何非空白字符，它相当于类[^\t\n\r\f\v]
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>a = re.findall(&quot;\S&quot;, &quot;匹配规则   这2个字符串3是否匹\n配规则5则则则7则&quot;)
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>print(a)
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>[&#39;匹&#39;, &#39;配&#39;, &#39;规&#39;, &#39;则&#39;, &#39;这&#39;, &#39;2&#39;, &#39;个&#39;, &#39;字&#39;, &#39;符&#39;, &#39;串&#39;, &#39;3&#39;, &#39;是&#39;, &#39;否&#39;, &#39;匹&#39;, &#39;配&#39;, &#39;规&#39;, &#39;则&#39;, &#39;5&#39;, &#39;则&#39;, &#39;则&#39;, &#39;则&#39;, &#39;7&#39;, &#39;则&#39;]
+</code></pre></div>
+<p><strong>\w</strong></p>
+<p>匹配包括下划线在内任何字母数字字符，它相当于类[a-zA-Z0-9_]</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>import re
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a># \w匹配包括下划线在内任何字母数字字符，它相当于类[a-zA-Z0-9_]
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>a = re.findall(&#39;\w&#39;, &quot;https://www.cnblogs.com/&quot;)
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>print(a)
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>[&#39;h&#39;, &#39;t&#39;, &#39;t&#39;, &#39;p&#39;, &#39;s&#39;, &#39;w&#39;, &#39;w&#39;, &#39;w&#39;, &#39;c&#39;, &#39;n&#39;, &#39;b&#39;, &#39;l&#39;, &#39;o&#39;, &#39;g&#39;, &#39;s&#39;, &#39;c&#39;, &#39;o&#39;, &#39;m&#39;]
+</code></pre></div>
+<p><strong>\W</strong></p>
+<p>匹配非任何字母数字字符包括下划线在内，它相当于类[^a-zA-Z0-9_]</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>import re
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a># \w匹配包括下划线在内任何字母数字字符，它相当于类[a-zA-Z0-9_]
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>a = re.findall(&#39;\W&#39;, &quot;https://www.cnblogs.com/&quot;)
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>print(a)
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>[&#39;:&#39;, &#39;/&#39;, &#39;/&#39;, &#39;.&#39;, &#39;.&#39;, &#39;/&#39;]
+</code></pre></div>
+<p><strong>()元字符</strong>(分组)</p>
+<p>也就是分组匹配，()里面的为一个组也可以理解成一个整体</p>
+<p>如果()后面跟的是特殊元字符如 (adc)<em> 那么</em>控制的前导字符就是()里的整体内容，不再是前导一个字符</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>import re
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a># 也就是分组匹配，()里面的为一个组也可以理解成一个整体
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>a = re.search(&quot;(a4)+&quot;, &quot;a4a4a4a4a4dg4g654gb&quot;)  # 匹配一个或多个a4
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>b = a.group()
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>print(b)
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>a4a4a4a4a4
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>import re
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a># 也就是分组匹配，()里面的为一个组也可以理解成一个整体
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a># 匹配 (a) (\d0-9的数字) (+可以是1个到多个0-9的数字)
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>a = re.search(&quot;a(\d+)&quot;, &quot;a466666664a4a4a4dg4g654gb&quot;)
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>b = a.group()
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>print(b)
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>a466666664
+</code></pre></div>
+<p><strong>|元字符</strong>(或)</p>
+<p>|或，或就是前后其中一个符合就匹配</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>import re
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>a = re.findall(r&quot;你|好&quot;, &quot;a4a4a你4aabc4a4dgg好dg4g654g&quot;)  # |或，或就是前后其中一个符合就匹配
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>print(a)
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>[&#39;你&#39;, &#39;好&#39;]
+</code></pre></div>
+<h1 id="re_1">re模块中常用功能函数</h1>
+<h2 id="_5">正则表达式的两种书写方式</h2>
+<p>1.一种是直接在函数里书写规则，<strong>推荐使用</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>import re
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>a = re.findall(&quot;匹配规则&quot;, &quot;这个字符串是否有匹配规则的字符&quot;)
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>print(a)
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>[&#39;匹配规则&#39;]
+</code></pre></div>
+<p>2.另一种是先将正则表达式的字符串形式编译为Pattern实例，然后使用Pattern实例处理文本并获得匹配结果（一个Match实例），最后使用Match实例获得信息，进行其他的操作。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>import re
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a># 将正则表达式编译成Pattern对象
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>pattern = re.compile(r&#39;hello&#39;)
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a># 使用Pattern匹配文本，获得匹配结果，无法匹配时将返回None
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>match = pattern.match(&#39;hello world!&#39;)
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>if match:
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>    # 使用Match获得分组信息
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    print(match.group())
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>hello
+</code></pre></div>
+<h2 id="recompilestrpattern-flag">re.compile(strPattern[, flag])函数</h2>
+<p>这个方法是Pattern类的工厂方法，用于将字符串形式的正则表达式编译为Pattern对象。 第二个参数flag是匹配模式，取值可以使用按位或运算符’|’表示同时生效，比如re.I | re.M。另外，你也可以在regex字符串中指定模式，比如re.compile(‘pattern’, re.I | re.M)与re.compile(‘(?im)pattern’)是等价的。</p>
+<p>下表是所有的正则匹配模式：</p>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>re.I</td>
+<td>使匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td>re.L</td>
+<td>做本地化识别（locale-aware）匹配</td>
+</tr>
+<tr>
+<td>re.M</td>
+<td>多行匹配，影响 ^ 和 $</td>
+</tr>
+<tr>
+<td>re.S</td>
+<td>使 . 匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td>re.U</td>
+<td>根据Unicode字符集解析字符。这个标志影响 \w, \W, \b, \B.</td>
+</tr>
+<tr>
+<td>re.X</td>
+<td>该标志通过给予你更灵活的格式以便你将正则表达式写得更易于理解。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="res">re.S</h3>
+<ul>
+<li>在Python的正则表达式中，有一个参数为re.S。它表示 “.” 的作用扩展到整个字符串，包括“\n”。看如下代码：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>import re
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>a = &#39;&#39;&#39;asdfhellopass:
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    worldaf
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    &#39;&#39;&#39;
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>b = re.findall(&#39;hello(.*?)world&#39;, a)
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>c = re.findall(&#39;hello(.*?)world&#39;, a, re.S)
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>print(&#39;b is &#39;, b)
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>print(&#39;c is &#39;, c)
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>b is  []
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>c is  [&#39;pass:\n    &#39;]
+</code></pre></div>
+<p>正则表达式中，“.”的作用是匹配除“\n”以外的任何字符，也就是说，它是在一行中进行匹配。这里的“行”是以“\n”进行区分的。a字符串有每行的末尾有一个“\n”，不过它不可见。</p>
+<p>如果不使用re.S参数，则只在每一行内进行匹配，如果一行没有，就换下一行重新开始，不会跨行。而使用re.S参数以后，正则表达式会将这个字符串作为一个整体，将“\n”当做一个普通的字符加入到这个字符串中，在整体中进行匹配。</p>
+<h3 id="rei">re.I</h3>
+<ul>
+<li>不区分大小写</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>res = re.findall(r&quot;A&quot;, &quot;abc&quot;, re.I)
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>print(res)
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>[&#39;a&#39;]
+</code></pre></div>
+<h3 id="rem">re.M</h3>
+<ul>
+<li>将所有行的尾字母输出（python3+已经无效）</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>s = &#39;12 34/n56 78/n90&#39;
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>re.findall(r&#39;^/d+&#39;, s, re.M)  # 匹配位于行首的数字  # [&#39;12&#39;, &#39;56&#39;, &#39;90&#39;]
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>re.findall(r&#39;/A/d+&#39;, s, re.M)  # 匹配位于字符串开头的数字  # [&#39;12&#39;]
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>re.findall(r&#39;/d+$&#39;, s, re.M)  # 匹配位于行尾的数字  # [&#39;34&#39;, &#39;78&#39;, &#39;90&#39;]
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>re.findall(r&#39;/d+/Z&#39;, s, re.M)  # 匹配位于字符串尾的数字  # [&#39;90&#39;]
+</code></pre></div>
+<h3 id="resub">re.sub</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a># 要求结果：[&#39;12&#39;, &#39;23&#39;, &#39;34&#39;]
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>l = [&#39;1 2 &#39;, &#39;2   3&#39;, &#39;  3 4&#39;]
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>import re
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>print(eval(re.sub(r&#39;\s*&#39;, &#39;&#39;, str(l))))
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>[&#39;12&#39;, &#39;23&#39;, &#39;34&#39;]
+</code></pre></div>
+<h2 id="rematchpattern-string-flags">re.match(pattern, string[, flags])函数(常用)</h2>
+<p>match，从头匹配一个符合规则的字符串，从起始位置开始匹配，匹配成功返回一个对象，未匹配成功返回None
+match(pattern, string, flags=0)</p>
+<ul>
+<li>pattern： 正则模型</li>
+<li>string ： 要匹配的字符串</li>
+<li>falgs ： 匹配模式</li>
+</ul>
+<p>注意：match()函数 与 search()函数基本是一样的功能，不一样的就是match()匹配字符串开始位置的一个符合规则的字符串，search()是在字符串全局匹配第一个合规则的字符串</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>import re
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a># 无分组
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>origin = &quot;hello egon bcd egon lge egon acd 19&quot;
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>r = re.match(&quot;h\w+&quot;, origin)  # match，从起始位置开始匹配，匹配成功返回一个对象，未匹配成功返回None
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>print(r.group())  # 获取匹配到的所有结果，不管有没有分组将匹配到的全部拿出来
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>print(r.groups())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分的结果
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>print(r.groupdict())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分定义了key的组结果
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>hello
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>()
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>{}
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a># 有分组
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a># 为何要有分组？提取匹配成功的指定内容（先匹配成功全部正则，再匹配成功的局部内容提取出来）
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>r = re.match(&quot;h(\w+)&quot;, origin)  # match，从起始位置开始匹配，匹配成功返回一个对象，未匹配成功返回None
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>print(r.group())  # 获取匹配到的所有结果，不管有没有分组将匹配到的全部拿出来
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>print(r.groups())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分的结果
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>print(r.groupdict())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分定义了key的组结果
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>hello
+<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>(&#39;ello&#39;,)
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a>{}
+<a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a># 有两个分组定义了key
+<a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a># 为何要有分组？提取匹配成功的指定内容（先匹配成功全部正则，再匹配成功的局部内容提取出来）
+<a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a># ?P&lt;&gt;定义组里匹配内容的key(键)，&lt;&gt;里面写key名称，值就是匹配到的内容
+<a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a>r = re.match(&quot;(?P&lt;n1&gt;h)(?P&lt;n2&gt;\w+)&quot;, origin)
+<a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a>print(r.group())  # 获取匹配到的所有结果，不管有没有分组将匹配到的全部拿出来
+<a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a>print(r.groups())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分的结果
+<a id="__codelineno-25-26" name="__codelineno-25-26" href="#__codelineno-25-26"></a>print(r.groupdict())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分定义了key的组结果
+<a id="__codelineno-25-27" name="__codelineno-25-27" href="#__codelineno-25-27"></a>hello
+<a id="__codelineno-25-28" name="__codelineno-25-28" href="#__codelineno-25-28"></a>(&#39;h&#39;, &#39;ello&#39;)
+<a id="__codelineno-25-29" name="__codelineno-25-29" href="#__codelineno-25-29"></a>{&#39;n1&#39;: &#39;h&#39;, &#39;n2&#39;: &#39;ello&#39;}
+</code></pre></div>
+<h2 id="_6">分组函数</h2>
+<p><code>?P&lt;n1&gt;</code> # ?P&lt;&gt;定义组里匹配内容的key(键)，&lt;&gt;里面写key名称，值就是匹配到的内容（只对正则函数返回对象时有用）</p>
+<p>取出匹配对象方法</p>
+<p>只对正则函数返回对象的有用</p>
+<ul>
+<li>group() # 获取匹配到的所有结果，不管有没有分组将匹配到的全部拿出来，有参取匹配到的第几个如2</li>
+<li>groups() # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分的结果</li>
+<li>groupdict() # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分定义了key的组结果</li>
+</ul>
+<h2 id="researchpattern-string-flags">re.search(pattern, string[, flags])函数</h2>
+<p>search,浏览全部字符串，匹配第一符合规则的字符串，浏览整个字符串去匹配第一个，未匹配成功返回None</p>
+<p>search(pattern, string, flags=0)</p>
+<ul>
+<li>pattern： 正则模型</li>
+<li>string ： 要匹配的字符串</li>
+<li>falgs ： 匹配模式</li>
+</ul>
+<p>注意：match()函数 与 search()函数基本是一样的功能，不一样的就是match()匹配字符串开始位置的一个符合规则的字符串，search()是在字符串全局匹配第一个合规则的字符串</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>import re
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a># 无分组
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a># search浏览全部字符串，匹配第一符合规则的字符串，浏览整个字符串去匹配第一个，未匹配成功返回None
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>r = re.search(&quot;a\w+&quot;, origin)
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>print(r.group())  # 获取匹配到的所有结果，不管有没有分组将匹配到的全部拿出来
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>print(r.groups())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分的结果
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>print(r.groupdict())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分定义了key的组结果
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>alex
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>()
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>{}
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a># 有分组
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a># 为何要有分组？提取匹配成功的指定内容（先匹配成功全部正则，再匹配成功的局部内容提取出来）
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>r = re.search(&quot;a(\w+).*(\d)&quot;, origin)
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>print(r.group())  # 获取匹配到的所有结果，不管有没有分组将匹配到的全部拿出来
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>print(r.groups())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分的结果
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>print(r.groupdict())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分定义了key的组结果
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>alex bcd alex lge alex acd 19
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>(&#39;lex&#39;, &#39;9&#39;)
+<a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>{}
+<a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a># 有两个分组定义了key
+<a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a># 为何要有分组？提取匹配成功的指定内容（先匹配成功全部正则，再匹配成功的局部内容提取出来）
+<a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a># ?P&lt;&gt;定义组里匹配内容的key(键)，&lt;&gt;里面写key名称，值就是匹配到的内容
+<a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a>r = re.search(&quot;a(?P&lt;n1&gt;\w+).*(?P&lt;n2&gt;\d)&quot;, origin)
+<a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a>print(r.group())  # 获取匹配到的所有结果，不管有没有分组将匹配到的全部拿出来
+<a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a>print(r.groups())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分的结果
+<a id="__codelineno-26-27" name="__codelineno-26-27" href="#__codelineno-26-27"></a>print(r.groupdict())  # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分定义了key的组结果
+<a id="__codelineno-26-28" name="__codelineno-26-28" href="#__codelineno-26-28"></a>alex bcd alex lge alex acd 19
+<a id="__codelineno-26-29" name="__codelineno-26-29" href="#__codelineno-26-29"></a>(&#39;lex&#39;, &#39;9&#39;)
+<a id="__codelineno-26-30" name="__codelineno-26-30" href="#__codelineno-26-30"></a>{&#39;n1&#39;: &#39;lex&#39;, &#39;n2&#39;: &#39;9&#39;}
+</code></pre></div>
+<h2 id="refindallpattern-string-flags">re.findall(pattern, string[, flags])函数(常用)</h2>
+<p>findall(pattern, string, flags=0)</p>
+<ul>
+<li>pattern： 正则模型</li>
+<li>string ： 要匹配的字符串</li>
+<li>falgs ： 匹配模式</li>
+</ul>
+<p>浏览全部字符串，匹配所有合规则的字符串，匹配到的字符串放到一个列表中，未匹配成功返回空列表</p>
+<p>注意：一旦匹配成，再次匹配，是从前一次匹配成功的，后面一位开始的，也可以理解为匹配成功的字符串，不在参与下次匹配</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>import re
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a># 无分组
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>r = re.findall(&quot;\d+\w\d+&quot;, &quot;a2b3c4d5&quot;)  # 浏览全部字符串，匹配所有合规则的字符串，匹配到的字符串放到一个列表中
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>print(r)  # 注意：匹配成功的字符串，不在参与下次匹配,所以3c4也符合规则但是没匹配到
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>[&#39;2b3&#39;, &#39;4d5&#39;]
+</code></pre></div>
+<p>注意：如果没写匹配规则，也就是空规则，返回的是一个比原始字符串多一位的，空字符串列表</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>import re
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a># 无分组
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>r = re.findall(&quot;&quot;, &quot;a2b3c4d5&quot;)  # 浏览全部字符串，匹配所有合规则的字符串，匹配到的字符串放到一个列表中
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>print(r)  # 注意：如果没写匹配规则，也就是空规则，返回的是一个比原始字符串多一位的，空字符串列表
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>[&#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;]
+</code></pre></div>
+<p>注意：正则匹配到空字符的情况，如果规则里只有一个组，而组后面是<em>就表示组里的内容可以是0个或者多过，这样组里就有了两个意思，一个意思是匹配组里的内容，二个意思是匹配组里0内容（即是空白）所以尽量避免用</em>否则会有可能匹配出空字符串</p>
+<p>注意：正则只拿组里最后一位，如果规则里只有一个组，匹配到的字符串里在拿组内容是，拿的是匹配到的内容最后一位</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>import re
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>r = re.findall(&quot;(a)*&quot;, origin)
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>print(r)
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>[&#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;a&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;a&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;a&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;a&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;]
+</code></pre></div>
+<p>无分组：匹配所有合规则的字符串，匹配到的字符串放到一个列表中</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>import re
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a># 无分组
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>r = re.findall(&quot;a\w+&quot;, origin)  # 浏览全部字符串，匹配所有合规则的字符串，匹配到的字符串放到一个列表中
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>print(r)
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>[&#39;alex&#39;, &#39;alex&#39;, &#39;alex&#39;, &#39;acd&#39;]
+</code></pre></div>
+<p>有分组：只将匹配到的字符串里，组的部分放到列表里返回，相当于groups()方法</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>import re
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>r = re.findall(&quot;a(\w+)&quot;, origin)  # 有分组：只将匹配到的字符串里，组的部分放到列表里返回
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>print(r)
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>[&#39;lex&#39;, &#39;lex&#39;, &#39;lex&#39;, &#39;cd&#39;]
+</code></pre></div>
+<p>多个分组：只将匹配到的字符串里，组的部分放到一个元组中，最后将所有元组放到一个列表里返</p>
+<p>相当于在group()结果里再将组的部分，分别，拿出来放入一个元组，最后将所有元组放入一个列表返回</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>import re
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a># 多个分组：只将匹配到的字符串里，组的部分放到一个元组中，最后将所有元组放到一个列表里返回
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>r = re.findall(&quot;(a)(\w+)&quot;, origin)
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>print(r)
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>[(&#39;a&#39;, &#39;lex&#39;), (&#39;a&#39;, &#39;lex&#39;), (&#39;a&#39;, &#39;lex&#39;), (&#39;a&#39;, &#39;cd&#39;)]
+</code></pre></div>
+<p>分组中有分组：只将匹配到的字符串里，组的部分放到一个元组中，先将包含有组的组，看作一个整体也就是一个组，把这个整体组放入一个元组里，然后在把组里的组放入一个元组，最后将所有组放入一个列表返回</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>import re
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a># 分组中有分组：只将匹配到的字符串里，组的部分放到一个元组中，先将包含有组的组，看作一个整体也就是一个组，把这个整体组放入一个元组里，然后在把组里的组放入一个元组，最后将所有组放入一个列表返回
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>r = re.findall(&quot;(a)(\w+(e))&quot;, origin)
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>print(r)
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>[(&#39;a&#39;, &#39;le&#39;, &#39;e&#39;), (&#39;a&#39;, &#39;le&#39;, &#39;e&#39;), (&#39;a&#39;, &#39;le&#39;, &#39;e&#39;)]
+</code></pre></div>
+<p>?:在有分组的情况下findall()函数，不只拿分组里的字符串，拿所有匹配到的字符串，注意?:只用于不是返回正则对象的函数如findall()</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>import re
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a># ?:在有分组的情况下，不只拿分组里的字符串，拿所有匹配到的字符串，注意?:只用于不是返回正则对象的函数如findall()
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>b = re.findall(&quot;a(?:\w+)&quot;, origin)
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>print(b)
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>[&#39;alex&#39;, &#39;alex&#39;, &#39;alex&#39;, &#39;acd&#39;]
+</code></pre></div>
+<h2 id="resplitpattern-string-maxsplit">re.split(pattern, string[, maxsplit])函数</h2>
+<p>根据正则匹配分割字符串，返回分割后的一个列表</p>
+<p>split(pattern, string, maxsplit=0, flags=0)</p>
+<ul>
+<li>pattern： 正则模型</li>
+<li>string ： 要匹配的字符串</li>
+<li>maxsplit：指定分割个数</li>
+<li>flags ： 匹配模式</li>
+</ul>
+<p>按照一个字符将全部字符串进行分割</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>import re
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>r = re.split(&quot;a&quot;, origin)  # 根据正则匹配分割字符串
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>print(r)
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>[&#39;hello &#39;, &#39;lex bcd &#39;, &#39;lex lge &#39;, &#39;lex &#39;, &#39;cd 19&#39;]
+</code></pre></div>
+<p>将匹配到的字符串作为分割标准进行分割</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>import re
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>origin = &quot;hello alex bcd alex lge alex 2acd 19&quot;
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>r = re.split(&quot;a\w+&quot;, origin)  # 根据正则匹配分割字符串
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>print(r)
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>[&#39;hello &#39;, &#39; bcd &#39;, &#39; lge &#39;, &#39; 2&#39;, &#39; 19&#39;]
+</code></pre></div>
+<h2 id="resubpattern-repl-string-count">re.sub(pattern, repl, string[, count])函数</h2>
+<p>替换匹配成功的指定位置字符串</p>
+<p>sub(pattern, repl, string, count=0, flags=0)</p>
+<ul>
+<li>pattern： 正则模型</li>
+<li>repl ： 要替换的字符串</li>
+<li>string ： 要匹配的字符串</li>
+<li>count ： 指定匹配个数</li>
+<li>flags ： 匹配模式</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>import re
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>r = re.sub(&quot;a&quot;, &quot;替换&quot;, origin)  # 替换匹配成功的指定位置字符串
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>print(r)
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>hello 替换lex bcd 替换lex lge 替换lex 替换cd 19
+</code></pre></div>
+<h2 id="resubnpattern-repl-string-count-flags">re.subn(pattern, repl, string,[, count][, flags])函数</h2>
+<p>替换匹配成功的指定位置字符串,并且返回替换次数，可以用两个变量分别接受</p>
+<p>subn(pattern, repl, string, count=0, flags=0)</p>
+<ul>
+<li>pattern： 正则模型</li>
+<li>repl ： 要替换的字符串</li>
+<li>string ： 要匹配的字符串</li>
+<li>count ： 指定匹配个数</li>
+<li>flags ： 匹配模式</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>import re
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>origin = &quot;hello alex bcd alex lge alex acd 19&quot;
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>a, b = re.subn(&quot;a&quot;, &quot;替换&quot;, origin)  # 替换匹配成功的指定位置字符串,并且返回替换次数，可以用两个变量分别接受
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>print(a)
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>print(b)
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>hello 替换lex bcd 替换lex lge 替换lex 替换cd 19
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>4
+</code></pre></div>
+<h1 id="_7">注意事项</h1>
+<ol>
+<li>r原生字符：让在python里有特殊意义的字符如\b，转换成原生字符（就是去除它在python的特殊意义），不然会给正则表达式有冲突，为了避免这种冲突可以在规则前加原始字符r</li>
+<li>正则表达式，返回类型为表达式对象的，如：&lt;_sre.SRE_Match object; span=(6, 7), match=’a’&gt;，返回对象时，需要用正则方法取字符串，方法有：</li>
+<li>group() # 获取匹配到的所有结果，不管有没有分组将匹配到的全部拿出来，有参取匹配到的第几个如2</li>
+<li>groups() # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分的结果</li>
+<li>groupdict() # 获取模型中匹配到的分组结果，只拿出匹配到的字符串中分组部分定义了key的组结果</li>
+<li>匹配到的字符串里出现空字符：注意：正则匹配到空字符的情况，如果规则里只有一个组，而组后面是<em>就表示组里的内容可以是0个或者多过，这样组里就有了两个意思，一个意思是匹配组里的内容，二个意思是匹配组里0内容（即是空白）所以尽量避免用</em>否则会有可能匹配出空字符串</li>
+<li>()分组：注意：分组的意义，就是在匹配成功的字符串中，再提取()里的内容，也就是组里面的字符串</li>
+<li>?:在有分组的情况下findall()函数，不只拿分组里的字符串，拿所有匹配到的字符串，注意?:只用于不是返回正则对象的函数如findall()</li>
+</ol>
+<h1 id="_8">计算器(经典)</h1>
+<p>基于递归和正则将下面的字符串翻译成计算器表达式，并且获取最终结果：<code>expression='-1-2*((60+2*(-3-40.0+42425/5)*(9-2*5/3+357/553/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))+56+(56-45)'</code></p>
+<p>如果代码正确，计算结果为：<code>-553071849.7670887</code></p>
+<p>提示：<code>content=re.search('\(([\-\+\*\/]*\d+\.?\d*)+\)',expression).group() #(-3-40.0/5)</code></p>
+<h2 id="_9">复杂版本</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>#!/usr/bin/env python
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a># -*- coding:utf-8 -*-
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>&quot;&quot;&quot;
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>该计算器思路：
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>    1、递归寻找表达式中只含有 数字和运算符的表达式，并计算结果
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>    2、由于整数计算会忽略小数，所有的数字都认为是浮点型操作，以此来保留小数
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>使用技术：
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>    1、正则表达式
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a>    2、递归
+<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>&quot;&quot;&quot;
+<a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a>
+<a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a>import re
+<a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a>
+<a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a>
+<a id="__codelineno-39-15" name="__codelineno-39-15" href="#__codelineno-39-15"></a>def compute_mul_div(arg):
+<a id="__codelineno-39-16" name="__codelineno-39-16" href="#__codelineno-39-16"></a>    &quot;&quot;&quot; 操作乘除
+<a id="__codelineno-39-17" name="__codelineno-39-17" href="#__codelineno-39-17"></a>    :param expression:表达式
+<a id="__codelineno-39-18" name="__codelineno-39-18" href="#__codelineno-39-18"></a>    :return:计算结果
+<a id="__codelineno-39-19" name="__codelineno-39-19" href="#__codelineno-39-19"></a>    &quot;&quot;&quot;
+<a id="__codelineno-39-20" name="__codelineno-39-20" href="#__codelineno-39-20"></a>
+<a id="__codelineno-39-21" name="__codelineno-39-21" href="#__codelineno-39-21"></a>    val = arg[0]
+<a id="__codelineno-39-22" name="__codelineno-39-22" href="#__codelineno-39-22"></a>    mch = re.search(&#39;\d+\.*\d*[\*\/]+[\+\-]?\d+\.*\d*&#39;, val)
+<a id="__codelineno-39-23" name="__codelineno-39-23" href="#__codelineno-39-23"></a>    if not mch:
+<a id="__codelineno-39-24" name="__codelineno-39-24" href="#__codelineno-39-24"></a>        return
+<a id="__codelineno-39-25" name="__codelineno-39-25" href="#__codelineno-39-25"></a>    content = re.search(&#39;\d+\.*\d*[\*\/]+[\+\-]?\d+\.*\d*&#39;, val).group()
+<a id="__codelineno-39-26" name="__codelineno-39-26" href="#__codelineno-39-26"></a>
+<a id="__codelineno-39-27" name="__codelineno-39-27" href="#__codelineno-39-27"></a>    if len(content.split(&#39;*&#39;)) &gt; 1:
+<a id="__codelineno-39-28" name="__codelineno-39-28" href="#__codelineno-39-28"></a>        n1, n2 = content.split(&#39;*&#39;)
+<a id="__codelineno-39-29" name="__codelineno-39-29" href="#__codelineno-39-29"></a>        value = float(n1) * float(n2)
+<a id="__codelineno-39-30" name="__codelineno-39-30" href="#__codelineno-39-30"></a>    else:
+<a id="__codelineno-39-31" name="__codelineno-39-31" href="#__codelineno-39-31"></a>        n1, n2 = content.split(&#39;/&#39;)
+<a id="__codelineno-39-32" name="__codelineno-39-32" href="#__codelineno-39-32"></a>        value = float(n1) / float(n2)
+<a id="__codelineno-39-33" name="__codelineno-39-33" href="#__codelineno-39-33"></a>
+<a id="__codelineno-39-34" name="__codelineno-39-34" href="#__codelineno-39-34"></a>    before, after = re.split(&#39;\d+\.*\d*[\*\/]+[\+\-]?\d+\.*\d*&#39;, val, 1)
+<a id="__codelineno-39-35" name="__codelineno-39-35" href="#__codelineno-39-35"></a>    new_str = &quot;%s%s%s&quot; % (before, value, after)
+<a id="__codelineno-39-36" name="__codelineno-39-36" href="#__codelineno-39-36"></a>    arg[0] = new_str
+<a id="__codelineno-39-37" name="__codelineno-39-37" href="#__codelineno-39-37"></a>    compute_mul_div(arg)
+<a id="__codelineno-39-38" name="__codelineno-39-38" href="#__codelineno-39-38"></a>
+<a id="__codelineno-39-39" name="__codelineno-39-39" href="#__codelineno-39-39"></a>
+<a id="__codelineno-39-40" name="__codelineno-39-40" href="#__codelineno-39-40"></a>def compute_add_sub(arg):
+<a id="__codelineno-39-41" name="__codelineno-39-41" href="#__codelineno-39-41"></a>    &quot;&quot;&quot; 操作加减
+<a id="__codelineno-39-42" name="__codelineno-39-42" href="#__codelineno-39-42"></a>    :param expression:表达式
+<a id="__codelineno-39-43" name="__codelineno-39-43" href="#__codelineno-39-43"></a>    :return:计算结果
+<a id="__codelineno-39-44" name="__codelineno-39-44" href="#__codelineno-39-44"></a>    &quot;&quot;&quot;
+<a id="__codelineno-39-45" name="__codelineno-39-45" href="#__codelineno-39-45"></a>    while True:
+<a id="__codelineno-39-46" name="__codelineno-39-46" href="#__codelineno-39-46"></a>        if arg[0].__contains__(&#39;+-&#39;) or arg[0].__contains__(&quot;++&quot;) or arg[
+<a id="__codelineno-39-47" name="__codelineno-39-47" href="#__codelineno-39-47"></a>                0].__contains__(&#39;-+&#39;) or arg[0].__contains__(&quot;--&quot;):
+<a id="__codelineno-39-48" name="__codelineno-39-48" href="#__codelineno-39-48"></a>            arg[0] = arg[0].replace(&#39;+-&#39;, &#39;-&#39;)
+<a id="__codelineno-39-49" name="__codelineno-39-49" href="#__codelineno-39-49"></a>            arg[0] = arg[0].replace(&#39;++&#39;, &#39;+&#39;)
+<a id="__codelineno-39-50" name="__codelineno-39-50" href="#__codelineno-39-50"></a>            arg[0] = arg[0].replace(&#39;-+&#39;, &#39;-&#39;)
+<a id="__codelineno-39-51" name="__codelineno-39-51" href="#__codelineno-39-51"></a>            arg[0] = arg[0].replace(&#39;--&#39;, &#39;+&#39;)
+<a id="__codelineno-39-52" name="__codelineno-39-52" href="#__codelineno-39-52"></a>        else:
+<a id="__codelineno-39-53" name="__codelineno-39-53" href="#__codelineno-39-53"></a>            break
+<a id="__codelineno-39-54" name="__codelineno-39-54" href="#__codelineno-39-54"></a>
+<a id="__codelineno-39-55" name="__codelineno-39-55" href="#__codelineno-39-55"></a>    if arg[0].startswith(&#39;-&#39;):
+<a id="__codelineno-39-56" name="__codelineno-39-56" href="#__codelineno-39-56"></a>        arg[1] += 1
+<a id="__codelineno-39-57" name="__codelineno-39-57" href="#__codelineno-39-57"></a>        arg[0] = arg[0].replace(&#39;-&#39;, &#39;&amp;&#39;)
+<a id="__codelineno-39-58" name="__codelineno-39-58" href="#__codelineno-39-58"></a>        arg[0] = arg[0].replace(&#39;+&#39;, &#39;-&#39;)
+<a id="__codelineno-39-59" name="__codelineno-39-59" href="#__codelineno-39-59"></a>        arg[0] = arg[0].replace(&#39;&amp;&#39;, &#39;+&#39;)
+<a id="__codelineno-39-60" name="__codelineno-39-60" href="#__codelineno-39-60"></a>        arg[0] = arg[0][1:]
+<a id="__codelineno-39-61" name="__codelineno-39-61" href="#__codelineno-39-61"></a>    val = arg[0]
+<a id="__codelineno-39-62" name="__codelineno-39-62" href="#__codelineno-39-62"></a>    mch = re.search(&#39;\d+\.*\d*[\+\-]{1}\d+\.*\d*&#39;, val)
+<a id="__codelineno-39-63" name="__codelineno-39-63" href="#__codelineno-39-63"></a>    if not mch:
+<a id="__codelineno-39-64" name="__codelineno-39-64" href="#__codelineno-39-64"></a>        return
+<a id="__codelineno-39-65" name="__codelineno-39-65" href="#__codelineno-39-65"></a>    content = re.search(&#39;\d+\.*\d*[\+\-]{1}\d+\.*\d*&#39;, val).group()
+<a id="__codelineno-39-66" name="__codelineno-39-66" href="#__codelineno-39-66"></a>    if len(content.split(&#39;+&#39;)) &gt; 1:
+<a id="__codelineno-39-67" name="__codelineno-39-67" href="#__codelineno-39-67"></a>        n1, n2 = content.split(&#39;+&#39;)
+<a id="__codelineno-39-68" name="__codelineno-39-68" href="#__codelineno-39-68"></a>        value = float(n1) + float(n2)
+<a id="__codelineno-39-69" name="__codelineno-39-69" href="#__codelineno-39-69"></a>    else:
+<a id="__codelineno-39-70" name="__codelineno-39-70" href="#__codelineno-39-70"></a>        n1, n2 = content.split(&#39;-&#39;)
+<a id="__codelineno-39-71" name="__codelineno-39-71" href="#__codelineno-39-71"></a>        value = float(n1) - float(n2)
+<a id="__codelineno-39-72" name="__codelineno-39-72" href="#__codelineno-39-72"></a>
+<a id="__codelineno-39-73" name="__codelineno-39-73" href="#__codelineno-39-73"></a>    before, after = re.split(&#39;\d+\.*\d*[\+\-]{1}\d+\.*\d*&#39;, val, 1)
+<a id="__codelineno-39-74" name="__codelineno-39-74" href="#__codelineno-39-74"></a>    new_str = &quot;%s%s%s&quot; % (before, value, after)
+<a id="__codelineno-39-75" name="__codelineno-39-75" href="#__codelineno-39-75"></a>    arg[0] = new_str
+<a id="__codelineno-39-76" name="__codelineno-39-76" href="#__codelineno-39-76"></a>    compute_add_sub(arg)
+<a id="__codelineno-39-77" name="__codelineno-39-77" href="#__codelineno-39-77"></a>
+<a id="__codelineno-39-78" name="__codelineno-39-78" href="#__codelineno-39-78"></a>
+<a id="__codelineno-39-79" name="__codelineno-39-79" href="#__codelineno-39-79"></a>def compute(expression):
+<a id="__codelineno-39-80" name="__codelineno-39-80" href="#__codelineno-39-80"></a>    &quot;&quot;&quot; 操作加减乘除
+<a id="__codelineno-39-81" name="__codelineno-39-81" href="#__codelineno-39-81"></a>    :param expression:表达式
+<a id="__codelineno-39-82" name="__codelineno-39-82" href="#__codelineno-39-82"></a>    :return:计算结果
+<a id="__codelineno-39-83" name="__codelineno-39-83" href="#__codelineno-39-83"></a>    &quot;&quot;&quot;
+<a id="__codelineno-39-84" name="__codelineno-39-84" href="#__codelineno-39-84"></a>    inp = [expression, 0]
+<a id="__codelineno-39-85" name="__codelineno-39-85" href="#__codelineno-39-85"></a>
+<a id="__codelineno-39-86" name="__codelineno-39-86" href="#__codelineno-39-86"></a>    # 处理表达式中的乘除
+<a id="__codelineno-39-87" name="__codelineno-39-87" href="#__codelineno-39-87"></a>    compute_mul_div(inp)
+<a id="__codelineno-39-88" name="__codelineno-39-88" href="#__codelineno-39-88"></a>
+<a id="__codelineno-39-89" name="__codelineno-39-89" href="#__codelineno-39-89"></a>    # 处理
+<a id="__codelineno-39-90" name="__codelineno-39-90" href="#__codelineno-39-90"></a>    compute_add_sub(inp)
+<a id="__codelineno-39-91" name="__codelineno-39-91" href="#__codelineno-39-91"></a>    if divmod(inp[1], 2)[1] == 1:
+<a id="__codelineno-39-92" name="__codelineno-39-92" href="#__codelineno-39-92"></a>        result = float(inp[0])
+<a id="__codelineno-39-93" name="__codelineno-39-93" href="#__codelineno-39-93"></a>        result = result * -1
+<a id="__codelineno-39-94" name="__codelineno-39-94" href="#__codelineno-39-94"></a>    else:
+<a id="__codelineno-39-95" name="__codelineno-39-95" href="#__codelineno-39-95"></a>        result = float(inp[0])
+<a id="__codelineno-39-96" name="__codelineno-39-96" href="#__codelineno-39-96"></a>    return result
+<a id="__codelineno-39-97" name="__codelineno-39-97" href="#__codelineno-39-97"></a>
+<a id="__codelineno-39-98" name="__codelineno-39-98" href="#__codelineno-39-98"></a>
+<a id="__codelineno-39-99" name="__codelineno-39-99" href="#__codelineno-39-99"></a>def exec_bracket(expression):
+<a id="__codelineno-39-100" name="__codelineno-39-100" href="#__codelineno-39-100"></a>    &quot;&quot;&quot; 递归处理括号，并计算
+<a id="__codelineno-39-101" name="__codelineno-39-101" href="#__codelineno-39-101"></a>    :param expression: 表达式
+<a id="__codelineno-39-102" name="__codelineno-39-102" href="#__codelineno-39-102"></a>    :return:最终计算结果
+<a id="__codelineno-39-103" name="__codelineno-39-103" href="#__codelineno-39-103"></a>    &quot;&quot;&quot;
+<a id="__codelineno-39-104" name="__codelineno-39-104" href="#__codelineno-39-104"></a>    # 如果表达式中已经没有括号，则直接调用负责计算的函数，将表达式结果返回，如：2*1-82+444
+<a id="__codelineno-39-105" name="__codelineno-39-105" href="#__codelineno-39-105"></a>    if not re.search(&#39;\(([\+\-\*\/]*\d+\.*\d*){2,}\)&#39;, expression):
+<a id="__codelineno-39-106" name="__codelineno-39-106" href="#__codelineno-39-106"></a>        final = compute(expression)
+<a id="__codelineno-39-107" name="__codelineno-39-107" href="#__codelineno-39-107"></a>        return final
+<a id="__codelineno-39-108" name="__codelineno-39-108" href="#__codelineno-39-108"></a>    # 获取 第一个 只含有 数字/小数 和 操作符 的括号
+<a id="__codelineno-39-109" name="__codelineno-39-109" href="#__codelineno-39-109"></a>    # 如：
+<a id="__codelineno-39-110" name="__codelineno-39-110" href="#__codelineno-39-110"></a>    #    [&#39;1-2*((60-30+(-40.0/5)*(9-2*5/3+7/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))&#39;]
+<a id="__codelineno-39-111" name="__codelineno-39-111" href="#__codelineno-39-111"></a>    #    找出：(-40.0/5)
+<a id="__codelineno-39-112" name="__codelineno-39-112" href="#__codelineno-39-112"></a>    content = re.search(&#39;\(([\+\-\*\/]*\d+\.*\d*){2,}\)&#39;, expression).group()
+<a id="__codelineno-39-113" name="__codelineno-39-113" href="#__codelineno-39-113"></a>
+<a id="__codelineno-39-114" name="__codelineno-39-114" href="#__codelineno-39-114"></a>    # 分割表达式，即：
+<a id="__codelineno-39-115" name="__codelineno-39-115" href="#__codelineno-39-115"></a>    # 将[&#39;1-2*((60-30+(-40.0/5)*(9-2*5/3+7/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))&#39;]
+<a id="__codelineno-39-116" name="__codelineno-39-116" href="#__codelineno-39-116"></a>    # 分割更三部分：[&#39;1-2*((60-30+(    (-40.0/5)      *(9-2*5/3+7/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))&#39;]
+<a id="__codelineno-39-117" name="__codelineno-39-117" href="#__codelineno-39-117"></a>    before, nothing, after = re.split(&#39;\(([\+\-\*\/]*\d+\.*\d*){2,}\)&#39;,
+<a id="__codelineno-39-118" name="__codelineno-39-118" href="#__codelineno-39-118"></a>                                      expression, 1)
+<a id="__codelineno-39-119" name="__codelineno-39-119" href="#__codelineno-39-119"></a>
+<a id="__codelineno-39-120" name="__codelineno-39-120" href="#__codelineno-39-120"></a>    print(&#39;before：&#39;, expression)
+<a id="__codelineno-39-121" name="__codelineno-39-121" href="#__codelineno-39-121"></a>    content = content[1:len(content) - 1]
+<a id="__codelineno-39-122" name="__codelineno-39-122" href="#__codelineno-39-122"></a>
+<a id="__codelineno-39-123" name="__codelineno-39-123" href="#__codelineno-39-123"></a>    # 计算，提取的表示 (-40.0/5)，并活的结果，即：-40.0/5=-8.0
+<a id="__codelineno-39-124" name="__codelineno-39-124" href="#__codelineno-39-124"></a>    ret = compute(content)
+<a id="__codelineno-39-125" name="__codelineno-39-125" href="#__codelineno-39-125"></a>
+<a id="__codelineno-39-126" name="__codelineno-39-126" href="#__codelineno-39-126"></a>    print(&#39;%s=%s&#39; % (content, ret))
+<a id="__codelineno-39-127" name="__codelineno-39-127" href="#__codelineno-39-127"></a>
+<a id="__codelineno-39-128" name="__codelineno-39-128" href="#__codelineno-39-128"></a>    # 将执行结果拼接，[&#39;1-2*((60-30+(      -8.0     *(9-2*5/3+7/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))&#39;]
+<a id="__codelineno-39-129" name="__codelineno-39-129" href="#__codelineno-39-129"></a>    expression = &quot;%s%s%s&quot; % (before, ret, after)
+<a id="__codelineno-39-130" name="__codelineno-39-130" href="#__codelineno-39-130"></a>    print(&#39;after：&#39;, expression)
+<a id="__codelineno-39-131" name="__codelineno-39-131" href="#__codelineno-39-131"></a>    print(&quot;=&quot; * 10, &#39;上一次计算结束&#39;, &quot;=&quot; * 10)
+<a id="__codelineno-39-132" name="__codelineno-39-132" href="#__codelineno-39-132"></a>
+<a id="__codelineno-39-133" name="__codelineno-39-133" href="#__codelineno-39-133"></a>    # 循环继续下次括号处理操作，本次携带者的是已被处理后的表达式，即：
+<a id="__codelineno-39-134" name="__codelineno-39-134" href="#__codelineno-39-134"></a>    # [&#39;1-2*((60-30+   -8.0  *(9-2*5/3+7/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))&#39;]
+<a id="__codelineno-39-135" name="__codelineno-39-135" href="#__codelineno-39-135"></a>
+<a id="__codelineno-39-136" name="__codelineno-39-136" href="#__codelineno-39-136"></a>    # 如此周而复始的操作，直到表达式中不再含有括号
+<a id="__codelineno-39-137" name="__codelineno-39-137" href="#__codelineno-39-137"></a>    return exec_bracket(expression)
+<a id="__codelineno-39-138" name="__codelineno-39-138" href="#__codelineno-39-138"></a>
+<a id="__codelineno-39-139" name="__codelineno-39-139" href="#__codelineno-39-139"></a>
+<a id="__codelineno-39-140" name="__codelineno-39-140" href="#__codelineno-39-140"></a># 使用 __name__ 的目的：
+<a id="__codelineno-39-141" name="__codelineno-39-141" href="#__codelineno-39-141"></a># 只有执行 python index.py 时，以下代码才执行
+<a id="__codelineno-39-142" name="__codelineno-39-142" href="#__codelineno-39-142"></a># 如果其他人导入该模块，以下代码不执行
+<a id="__codelineno-39-143" name="__codelineno-39-143" href="#__codelineno-39-143"></a>if __name__ == &quot;__main__&quot;:
+<a id="__codelineno-39-144" name="__codelineno-39-144" href="#__codelineno-39-144"></a>    print(
+<a id="__codelineno-39-145" name="__codelineno-39-145" href="#__codelineno-39-145"></a>        &#39;*&#39; * 20, &quot;请计算表达式：&quot;,
+<a id="__codelineno-39-146" name="__codelineno-39-146" href="#__codelineno-39-146"></a>        &quot;1 - 2 * ( (60-30 +(-40.0/5) * (9-2*5/3 + 7 /3*99/4*2998 +10 * 568/14 )) - (-4*3)/ (16-3*2) )&quot;,
+<a id="__codelineno-39-147" name="__codelineno-39-147" href="#__codelineno-39-147"></a>        &#39;*&#39; * 20)
+<a id="__codelineno-39-148" name="__codelineno-39-148" href="#__codelineno-39-148"></a>    #     inpp = &#39;1 - 2 * ( (60-30 +(-40.0/5) * (9-2*5/3 + 7 /3*99/4*2998 +10 * 568/14 )) - (-4*3)/ (16-3*2) ) &#39;
+<a id="__codelineno-39-149" name="__codelineno-39-149" href="#__codelineno-39-149"></a>    inpp = &#39;-1-2*((60+2*(-3-40.0+42425/5)*(9-2*5/3+357/553/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))+56+(56-45)&#39;
+<a id="__codelineno-39-150" name="__codelineno-39-150" href="#__codelineno-39-150"></a>    # inpp = &quot;1-2*-30/-12*(-20+200*-3/-200*-300-100)&quot;
+<a id="__codelineno-39-151" name="__codelineno-39-151" href="#__codelineno-39-151"></a>    # inpp = &quot;1-5*980.0&quot;
+<a id="__codelineno-39-152" name="__codelineno-39-152" href="#__codelineno-39-152"></a>    inpp = re.sub(&#39;\s*&#39;, &#39;&#39;, inpp)
+<a id="__codelineno-39-153" name="__codelineno-39-153" href="#__codelineno-39-153"></a>    # 表达式保存在列表中
+<a id="__codelineno-39-154" name="__codelineno-39-154" href="#__codelineno-39-154"></a>    result = exec_bracket(inpp)
+<a id="__codelineno-39-155" name="__codelineno-39-155" href="#__codelineno-39-155"></a>    print(result)
+<a id="__codelineno-39-156" name="__codelineno-39-156" href="#__codelineno-39-156"></a>******************** 请计算表达式： 1 - 2 * ( (60-30 +(-40.0/5) * (9-2*5/3 + 7 /3*99/4*2998 +10 * 568/14 )) - (-4*3)/ (16-3*2) ) ********************
+<a id="__codelineno-39-157" name="__codelineno-39-157" href="#__codelineno-39-157"></a>before： -1-2*((60+2*(-3-40.0+42425/5)*(9-2*5/3+357/553/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-39-158" name="__codelineno-39-158" href="#__codelineno-39-158"></a>-3-40.0+42425/5=8442.0
+<a id="__codelineno-39-159" name="__codelineno-39-159" href="#__codelineno-39-159"></a>after： -1-2*((60+2*8442.0*(9-2*5/3+357/553/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-39-160" name="__codelineno-39-160" href="#__codelineno-39-160"></a>========== 上一次计算结束 ==========
+<a id="__codelineno-39-161" name="__codelineno-39-161" href="#__codelineno-39-161"></a>before： -1-2*((60+2*8442.0*(9-2*5/3+357/553/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-39-162" name="__codelineno-39-162" href="#__codelineno-39-162"></a>9-2*5/3+357/553/3*99/4*2998+10*568/14=16378.577154912598
+<a id="__codelineno-39-163" name="__codelineno-39-163" href="#__codelineno-39-163"></a>after： -1-2*((60+2*8442.0*16378.577154912598)-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-39-164" name="__codelineno-39-164" href="#__codelineno-39-164"></a>========== 上一次计算结束 ==========
+<a id="__codelineno-39-165" name="__codelineno-39-165" href="#__codelineno-39-165"></a>before： -1-2*((60+2*8442.0*16378.577154912598)-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-39-166" name="__codelineno-39-166" href="#__codelineno-39-166"></a>60+2*8442.0*16378.577154912598=276535956.68354434
+<a id="__codelineno-39-167" name="__codelineno-39-167" href="#__codelineno-39-167"></a>after： -1-2*(276535956.68354434-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-39-168" name="__codelineno-39-168" href="#__codelineno-39-168"></a>========== 上一次计算结束 ==========
+<a id="__codelineno-39-169" name="__codelineno-39-169" href="#__codelineno-39-169"></a>before： -1-2*(276535956.68354434-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-39-170" name="__codelineno-39-170" href="#__codelineno-39-170"></a>-4*3=-12.0
+<a id="__codelineno-39-171" name="__codelineno-39-171" href="#__codelineno-39-171"></a>after： -1-2*(276535956.68354434--12.0/(16-3*2))+56+(56-45)
+<a id="__codelineno-39-172" name="__codelineno-39-172" href="#__codelineno-39-172"></a>========== 上一次计算结束 ==========
+<a id="__codelineno-39-173" name="__codelineno-39-173" href="#__codelineno-39-173"></a>before： -1-2*(276535956.68354434--12.0/(16-3*2))+56+(56-45)
+<a id="__codelineno-39-174" name="__codelineno-39-174" href="#__codelineno-39-174"></a>16-3*2=10.0
+<a id="__codelineno-39-175" name="__codelineno-39-175" href="#__codelineno-39-175"></a>after： -1-2*(276535956.68354434--12.0/10.0)+56+(56-45)
+<a id="__codelineno-39-176" name="__codelineno-39-176" href="#__codelineno-39-176"></a>========== 上一次计算结束 ==========
+<a id="__codelineno-39-177" name="__codelineno-39-177" href="#__codelineno-39-177"></a>before： -1-2*(276535956.68354434--12.0/10.0)+56+(56-45)
+<a id="__codelineno-39-178" name="__codelineno-39-178" href="#__codelineno-39-178"></a>276535956.68354434--12.0/10.0=276535957.8835443
+<a id="__codelineno-39-179" name="__codelineno-39-179" href="#__codelineno-39-179"></a>after： -1-2*276535957.8835443+56+(56-45)
+<a id="__codelineno-39-180" name="__codelineno-39-180" href="#__codelineno-39-180"></a>========== 上一次计算结束 ==========
+<a id="__codelineno-39-181" name="__codelineno-39-181" href="#__codelineno-39-181"></a>before： -1-2*276535957.8835443+56+(56-45)
+<a id="__codelineno-39-182" name="__codelineno-39-182" href="#__codelineno-39-182"></a>56-45=11.0
+<a id="__codelineno-39-183" name="__codelineno-39-183" href="#__codelineno-39-183"></a>after： -1-2*276535957.8835443+56+11.0
+<a id="__codelineno-39-184" name="__codelineno-39-184" href="#__codelineno-39-184"></a>========== 上一次计算结束 ==========
+<a id="__codelineno-39-185" name="__codelineno-39-185" href="#__codelineno-39-185"></a>-553071849.7670887
+</code></pre></div>
+<h2 id="_10">简单易懂版</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>import re
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>expression = &#39;-1-2*((60+2*(-3-40.0+42425/5)*(9-2*5/3+357/553/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))+56+(56-45)&#39;
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>question = eval(expression)
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>print(question)
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>def arithmetic(expression=&#39;1+1&#39;):
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>    #     content = re.search(&#39;\(([\-\+\*\/]*\d+\.?\d*)+\)&#39;, expression)  # (-3-40.0/5)
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>    content = re.search(&#39;\(([-+*/]*\d+\.?\d*)+\)&#39;, expression)  # (-3-40.0/5)
+<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>    if content:
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a>        content = content.group()
+<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>        content = content[1:-1]
+<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>        print(&#39;content:&#39;, content)
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a>        replace_content = next_arithmetic(content)
+<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a>        expression = re.sub(&#39;\(([-+*/]*\d+\.?\d*)+\)&#39;,
+<a id="__codelineno-40-17" name="__codelineno-40-17" href="#__codelineno-40-17"></a>                            replace_content,
+<a id="__codelineno-40-18" name="__codelineno-40-18" href="#__codelineno-40-18"></a>                            expression,
+<a id="__codelineno-40-19" name="__codelineno-40-19" href="#__codelineno-40-19"></a>                            count=1)
+<a id="__codelineno-40-20" name="__codelineno-40-20" href="#__codelineno-40-20"></a>        print(&#39;next_expression:&#39;, expression)
+<a id="__codelineno-40-21" name="__codelineno-40-21" href="#__codelineno-40-21"></a>    else:
+<a id="__codelineno-40-22" name="__codelineno-40-22" href="#__codelineno-40-22"></a>        answer = next_arithmetic(expression)
+<a id="__codelineno-40-23" name="__codelineno-40-23" href="#__codelineno-40-23"></a>        return answer
+<a id="__codelineno-40-24" name="__codelineno-40-24" href="#__codelineno-40-24"></a>    return arithmetic(expression)
+<a id="__codelineno-40-25" name="__codelineno-40-25" href="#__codelineno-40-25"></a>
+<a id="__codelineno-40-26" name="__codelineno-40-26" href="#__codelineno-40-26"></a>
+<a id="__codelineno-40-27" name="__codelineno-40-27" href="#__codelineno-40-27"></a>def next_arithmetic(content):
+<a id="__codelineno-40-28" name="__codelineno-40-28" href="#__codelineno-40-28"></a>    while True:
+<a id="__codelineno-40-29" name="__codelineno-40-29" href="#__codelineno-40-29"></a>        next_content_mul_div = re.search(&#39;\d+\.?\d*[*/][-+]?\d+\.?\d*&#39;,
+<a id="__codelineno-40-30" name="__codelineno-40-30" href="#__codelineno-40-30"></a>                                         content)  # 找出带有*/的式子
+<a id="__codelineno-40-31" name="__codelineno-40-31" href="#__codelineno-40-31"></a>        if next_content_mul_div:  # 如果content含有带有*/的式子
+<a id="__codelineno-40-32" name="__codelineno-40-32" href="#__codelineno-40-32"></a>            next_content_mul_div = next_content_mul_div.group()
+<a id="__codelineno-40-33" name="__codelineno-40-33" href="#__codelineno-40-33"></a>            print(&#39;next_content_mul_div:&#39;, next_content_mul_div)
+<a id="__codelineno-40-34" name="__codelineno-40-34" href="#__codelineno-40-34"></a>            mul_div_content = mul_div(next_content_mul_div)  # 计算出带有*/的式子
+<a id="__codelineno-40-35" name="__codelineno-40-35" href="#__codelineno-40-35"></a>            print(&#39;mul_div_content:&#39;, mul_div_content)
+<a id="__codelineno-40-36" name="__codelineno-40-36" href="#__codelineno-40-36"></a>            content = re.sub(&#39;\d+\.?\d*[*/][-+]?\d+\.?\d*&#39;,
+<a id="__codelineno-40-37" name="__codelineno-40-37" href="#__codelineno-40-37"></a>                             str(mul_div_content),
+<a id="__codelineno-40-38" name="__codelineno-40-38" href="#__codelineno-40-38"></a>                             content,
+<a id="__codelineno-40-39" name="__codelineno-40-39" href="#__codelineno-40-39"></a>                             count=1)  # 把带有*/的式子计算出来后替换掉
+<a id="__codelineno-40-40" name="__codelineno-40-40" href="#__codelineno-40-40"></a>            print(&#39;content:&#39;, content)
+<a id="__codelineno-40-41" name="__codelineno-40-41" href="#__codelineno-40-41"></a>            continue
+<a id="__codelineno-40-42" name="__codelineno-40-42" href="#__codelineno-40-42"></a>        next_content_add_sub = re.search(&#39;-?\d+\.?\d*[-+][-+]?\d+\.?\d*&#39;,
+<a id="__codelineno-40-43" name="__codelineno-40-43" href="#__codelineno-40-43"></a>                                         content)  # 找出带有-+的式子
+<a id="__codelineno-40-44" name="__codelineno-40-44" href="#__codelineno-40-44"></a>        if next_content_add_sub:  # 如果content含有带有+-的式子
+<a id="__codelineno-40-45" name="__codelineno-40-45" href="#__codelineno-40-45"></a>            next_content_add_sub = next_content_add_sub.group()
+<a id="__codelineno-40-46" name="__codelineno-40-46" href="#__codelineno-40-46"></a>            print(&#39;next_content_add_sub:&#39;, next_content_add_sub)
+<a id="__codelineno-40-47" name="__codelineno-40-47" href="#__codelineno-40-47"></a>            add_sub_content = add_sub(next_content_add_sub)  # 计算出带有-+的式子
+<a id="__codelineno-40-48" name="__codelineno-40-48" href="#__codelineno-40-48"></a>            print(&#39;add_sub_content:&#39;, add_sub_content)
+<a id="__codelineno-40-49" name="__codelineno-40-49" href="#__codelineno-40-49"></a>            add_sub_content = str(add_sub_content)
+<a id="__codelineno-40-50" name="__codelineno-40-50" href="#__codelineno-40-50"></a>            content = re.sub(&#39;-?\d+\.?\d*[-+]-?\d+\.?\d*&#39;,
+<a id="__codelineno-40-51" name="__codelineno-40-51" href="#__codelineno-40-51"></a>                             str(add_sub_content),
+<a id="__codelineno-40-52" name="__codelineno-40-52" href="#__codelineno-40-52"></a>                             content,
+<a id="__codelineno-40-53" name="__codelineno-40-53" href="#__codelineno-40-53"></a>                             count=1)  # 把带有-+的式子计算出来后替换掉
+<a id="__codelineno-40-54" name="__codelineno-40-54" href="#__codelineno-40-54"></a>            print(&#39;content:&#39;, content)
+<a id="__codelineno-40-55" name="__codelineno-40-55" href="#__codelineno-40-55"></a>            continue
+<a id="__codelineno-40-56" name="__codelineno-40-56" href="#__codelineno-40-56"></a>        else:
+<a id="__codelineno-40-57" name="__codelineno-40-57" href="#__codelineno-40-57"></a>            break
+<a id="__codelineno-40-58" name="__codelineno-40-58" href="#__codelineno-40-58"></a>    return content
+<a id="__codelineno-40-59" name="__codelineno-40-59" href="#__codelineno-40-59"></a>
+<a id="__codelineno-40-60" name="__codelineno-40-60" href="#__codelineno-40-60"></a>
+<a id="__codelineno-40-61" name="__codelineno-40-61" href="#__codelineno-40-61"></a>def add_sub(content):
+<a id="__codelineno-40-62" name="__codelineno-40-62" href="#__codelineno-40-62"></a>    if &#39;+&#39; in content:
+<a id="__codelineno-40-63" name="__codelineno-40-63" href="#__codelineno-40-63"></a>        content = content.split(&#39;+&#39;)
+<a id="__codelineno-40-64" name="__codelineno-40-64" href="#__codelineno-40-64"></a>        print(content)
+<a id="__codelineno-40-65" name="__codelineno-40-65" href="#__codelineno-40-65"></a>        content = float(content[0]) + float(content[1])
+<a id="__codelineno-40-66" name="__codelineno-40-66" href="#__codelineno-40-66"></a>        return content
+<a id="__codelineno-40-67" name="__codelineno-40-67" href="#__codelineno-40-67"></a>    elif &#39;-&#39; in content:
+<a id="__codelineno-40-68" name="__codelineno-40-68" href="#__codelineno-40-68"></a>        content = content.split(&#39;-&#39;)
+<a id="__codelineno-40-69" name="__codelineno-40-69" href="#__codelineno-40-69"></a>        # 减法情况有多种
+<a id="__codelineno-40-70" name="__codelineno-40-70" href="#__codelineno-40-70"></a>        if content[0] == &#39;-&#39; and content[2] == &#39;-&#39;:
+<a id="__codelineno-40-71" name="__codelineno-40-71" href="#__codelineno-40-71"></a>            # content = content.split(&#39;-&#39;)
+<a id="__codelineno-40-72" name="__codelineno-40-72" href="#__codelineno-40-72"></a>            print(content)
+<a id="__codelineno-40-73" name="__codelineno-40-73" href="#__codelineno-40-73"></a>            content = -float(content[1]) - float(content[-1])
+<a id="__codelineno-40-74" name="__codelineno-40-74" href="#__codelineno-40-74"></a>            return content
+<a id="__codelineno-40-75" name="__codelineno-40-75" href="#__codelineno-40-75"></a>        if content[0] == &#39;-&#39;:
+<a id="__codelineno-40-76" name="__codelineno-40-76" href="#__codelineno-40-76"></a>            # content = content.split(&#39;-&#39;)
+<a id="__codelineno-40-77" name="__codelineno-40-77" href="#__codelineno-40-77"></a>            print(content)
+<a id="__codelineno-40-78" name="__codelineno-40-78" href="#__codelineno-40-78"></a>            content = -float(content[1]) - float(content[-1])
+<a id="__codelineno-40-79" name="__codelineno-40-79" href="#__codelineno-40-79"></a>            return content
+<a id="__codelineno-40-80" name="__codelineno-40-80" href="#__codelineno-40-80"></a>        if content[1] == &#39;-&#39; and content[2] == &#39;-&#39;:
+<a id="__codelineno-40-81" name="__codelineno-40-81" href="#__codelineno-40-81"></a>            # content = content.split(&#39;-&#39;)
+<a id="__codelineno-40-82" name="__codelineno-40-82" href="#__codelineno-40-82"></a>            print(content)
+<a id="__codelineno-40-83" name="__codelineno-40-83" href="#__codelineno-40-83"></a>            content = -float(content[0]) + float(content[-1])
+<a id="__codelineno-40-84" name="__codelineno-40-84" href="#__codelineno-40-84"></a>            return content
+<a id="__codelineno-40-85" name="__codelineno-40-85" href="#__codelineno-40-85"></a>        if content[1] == &#39;&#39;:
+<a id="__codelineno-40-86" name="__codelineno-40-86" href="#__codelineno-40-86"></a>            # content = content.split(&#39;-&#39;)
+<a id="__codelineno-40-87" name="__codelineno-40-87" href="#__codelineno-40-87"></a>            print(content)
+<a id="__codelineno-40-88" name="__codelineno-40-88" href="#__codelineno-40-88"></a>            content = float(content[0]) - float(content[2])
+<a id="__codelineno-40-89" name="__codelineno-40-89" href="#__codelineno-40-89"></a>            return content
+<a id="__codelineno-40-90" name="__codelineno-40-90" href="#__codelineno-40-90"></a>        if content[0] == &#39;&#39; and content[2] != &#39;&#39;:
+<a id="__codelineno-40-91" name="__codelineno-40-91" href="#__codelineno-40-91"></a>            print(content)
+<a id="__codelineno-40-92" name="__codelineno-40-92" href="#__codelineno-40-92"></a>            content = -float(content[1]) - float(content[2])
+<a id="__codelineno-40-93" name="__codelineno-40-93" href="#__codelineno-40-93"></a>            return content
+<a id="__codelineno-40-94" name="__codelineno-40-94" href="#__codelineno-40-94"></a>        if content[0] == &#39;&#39; and content[2] == &#39;&#39;:
+<a id="__codelineno-40-95" name="__codelineno-40-95" href="#__codelineno-40-95"></a>            print(content)
+<a id="__codelineno-40-96" name="__codelineno-40-96" href="#__codelineno-40-96"></a>            content = -float(content[1]) + float(content[3])
+<a id="__codelineno-40-97" name="__codelineno-40-97" href="#__codelineno-40-97"></a>            return content
+<a id="__codelineno-40-98" name="__codelineno-40-98" href="#__codelineno-40-98"></a>        else:
+<a id="__codelineno-40-99" name="__codelineno-40-99" href="#__codelineno-40-99"></a>            # content = content.split(&#39;-&#39;)
+<a id="__codelineno-40-100" name="__codelineno-40-100" href="#__codelineno-40-100"></a>            print(content)
+<a id="__codelineno-40-101" name="__codelineno-40-101" href="#__codelineno-40-101"></a>            content = float(content[0]) - float(content[1])
+<a id="__codelineno-40-102" name="__codelineno-40-102" href="#__codelineno-40-102"></a>            return content
+<a id="__codelineno-40-103" name="__codelineno-40-103" href="#__codelineno-40-103"></a>
+<a id="__codelineno-40-104" name="__codelineno-40-104" href="#__codelineno-40-104"></a>
+<a id="__codelineno-40-105" name="__codelineno-40-105" href="#__codelineno-40-105"></a>def mul_div(content):
+<a id="__codelineno-40-106" name="__codelineno-40-106" href="#__codelineno-40-106"></a>    if &#39;*&#39; in content:
+<a id="__codelineno-40-107" name="__codelineno-40-107" href="#__codelineno-40-107"></a>        content = content.split(&#39;*&#39;)
+<a id="__codelineno-40-108" name="__codelineno-40-108" href="#__codelineno-40-108"></a>        print(content)
+<a id="__codelineno-40-109" name="__codelineno-40-109" href="#__codelineno-40-109"></a>        content = float(content[0]) * float(content[1])
+<a id="__codelineno-40-110" name="__codelineno-40-110" href="#__codelineno-40-110"></a>        return content
+<a id="__codelineno-40-111" name="__codelineno-40-111" href="#__codelineno-40-111"></a>    elif &#39;/&#39; in content:
+<a id="__codelineno-40-112" name="__codelineno-40-112" href="#__codelineno-40-112"></a>        content = content.split(&#39;/&#39;)
+<a id="__codelineno-40-113" name="__codelineno-40-113" href="#__codelineno-40-113"></a>        print(content)
+<a id="__codelineno-40-114" name="__codelineno-40-114" href="#__codelineno-40-114"></a>        content = float(content[0]) / float(content[1])
+<a id="__codelineno-40-115" name="__codelineno-40-115" href="#__codelineno-40-115"></a>        return content
+<a id="__codelineno-40-116" name="__codelineno-40-116" href="#__codelineno-40-116"></a>
+<a id="__codelineno-40-117" name="__codelineno-40-117" href="#__codelineno-40-117"></a>
+<a id="__codelineno-40-118" name="__codelineno-40-118" href="#__codelineno-40-118"></a># expression = &#39;1-2*((60+2*(-3-40.0/5)*(9-2*5/3+7/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))&#39;
+<a id="__codelineno-40-119" name="__codelineno-40-119" href="#__codelineno-40-119"></a>expression = &#39;-1-2*((60+2*(-3-40.0+42425/5)*(9-2*5/3+357/553/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))+56+(56-45)&#39;
+<a id="__codelineno-40-120" name="__codelineno-40-120" href="#__codelineno-40-120"></a>answer = arithmetic(expression)
+<a id="__codelineno-40-121" name="__codelineno-40-121" href="#__codelineno-40-121"></a>print(answer)
+<a id="__codelineno-40-122" name="__codelineno-40-122" href="#__codelineno-40-122"></a>-553071849.7670887
+<a id="__codelineno-40-123" name="__codelineno-40-123" href="#__codelineno-40-123"></a>content: -3-40.0+42425/5
+<a id="__codelineno-40-124" name="__codelineno-40-124" href="#__codelineno-40-124"></a>next_content_mul_div: 42425/5
+<a id="__codelineno-40-125" name="__codelineno-40-125" href="#__codelineno-40-125"></a>[&#39;42425&#39;, &#39;5&#39;]
+<a id="__codelineno-40-126" name="__codelineno-40-126" href="#__codelineno-40-126"></a>mul_div_content: 8485.0
+<a id="__codelineno-40-127" name="__codelineno-40-127" href="#__codelineno-40-127"></a>content: -3-40.0+8485.0
+<a id="__codelineno-40-128" name="__codelineno-40-128" href="#__codelineno-40-128"></a>next_content_add_sub: -3-40.0
+<a id="__codelineno-40-129" name="__codelineno-40-129" href="#__codelineno-40-129"></a>[&#39;&#39;, &#39;3&#39;, &#39;40.0&#39;]
+<a id="__codelineno-40-130" name="__codelineno-40-130" href="#__codelineno-40-130"></a>add_sub_content: -43.0
+<a id="__codelineno-40-131" name="__codelineno-40-131" href="#__codelineno-40-131"></a>content: -43.0+8485.0
+<a id="__codelineno-40-132" name="__codelineno-40-132" href="#__codelineno-40-132"></a>next_content_add_sub: -43.0+8485.0
+<a id="__codelineno-40-133" name="__codelineno-40-133" href="#__codelineno-40-133"></a>[&#39;-43.0&#39;, &#39;8485.0&#39;]
+<a id="__codelineno-40-134" name="__codelineno-40-134" href="#__codelineno-40-134"></a>add_sub_content: 8442.0
+<a id="__codelineno-40-135" name="__codelineno-40-135" href="#__codelineno-40-135"></a>content: 8442.0
+<a id="__codelineno-40-136" name="__codelineno-40-136" href="#__codelineno-40-136"></a>next_expression: -1-2*((60+2*8442.0*(9-2*5/3+357/553/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-40-137" name="__codelineno-40-137" href="#__codelineno-40-137"></a>content: 9-2*5/3+357/553/3*99/4*2998+10*568/14
+<a id="__codelineno-40-138" name="__codelineno-40-138" href="#__codelineno-40-138"></a>next_content_mul_div: 2*5
+<a id="__codelineno-40-139" name="__codelineno-40-139" href="#__codelineno-40-139"></a>[&#39;2&#39;, &#39;5&#39;]
+<a id="__codelineno-40-140" name="__codelineno-40-140" href="#__codelineno-40-140"></a>mul_div_content: 10.0
+<a id="__codelineno-40-141" name="__codelineno-40-141" href="#__codelineno-40-141"></a>content: 9-10.0/3+357/553/3*99/4*2998+10*568/14
+<a id="__codelineno-40-142" name="__codelineno-40-142" href="#__codelineno-40-142"></a>next_content_mul_div: 10.0/3
+<a id="__codelineno-40-143" name="__codelineno-40-143" href="#__codelineno-40-143"></a>[&#39;10.0&#39;, &#39;3&#39;]
+<a id="__codelineno-40-144" name="__codelineno-40-144" href="#__codelineno-40-144"></a>mul_div_content: 3.3333333333333335
+<a id="__codelineno-40-145" name="__codelineno-40-145" href="#__codelineno-40-145"></a>content: 9-3.3333333333333335+357/553/3*99/4*2998+10*568/14
+<a id="__codelineno-40-146" name="__codelineno-40-146" href="#__codelineno-40-146"></a>next_content_mul_div: 357/553
+<a id="__codelineno-40-147" name="__codelineno-40-147" href="#__codelineno-40-147"></a>[&#39;357&#39;, &#39;553&#39;]
+<a id="__codelineno-40-148" name="__codelineno-40-148" href="#__codelineno-40-148"></a>mul_div_content: 0.6455696202531646
+<a id="__codelineno-40-149" name="__codelineno-40-149" href="#__codelineno-40-149"></a>content: 9-3.3333333333333335+0.6455696202531646/3*99/4*2998+10*568/14
+<a id="__codelineno-40-150" name="__codelineno-40-150" href="#__codelineno-40-150"></a>next_content_mul_div: 0.6455696202531646/3
+<a id="__codelineno-40-151" name="__codelineno-40-151" href="#__codelineno-40-151"></a>[&#39;0.6455696202531646&#39;, &#39;3&#39;]
+<a id="__codelineno-40-152" name="__codelineno-40-152" href="#__codelineno-40-152"></a>mul_div_content: 0.21518987341772153
+<a id="__codelineno-40-153" name="__codelineno-40-153" href="#__codelineno-40-153"></a>content: 9-3.3333333333333335+0.21518987341772153*99/4*2998+10*568/14
+<a id="__codelineno-40-154" name="__codelineno-40-154" href="#__codelineno-40-154"></a>next_content_mul_div: 0.21518987341772153*99
+<a id="__codelineno-40-155" name="__codelineno-40-155" href="#__codelineno-40-155"></a>[&#39;0.21518987341772153&#39;, &#39;99&#39;]
+<a id="__codelineno-40-156" name="__codelineno-40-156" href="#__codelineno-40-156"></a>mul_div_content: 21.303797468354432
+<a id="__codelineno-40-157" name="__codelineno-40-157" href="#__codelineno-40-157"></a>content: 9-3.3333333333333335+21.303797468354432/4*2998+10*568/14
+<a id="__codelineno-40-158" name="__codelineno-40-158" href="#__codelineno-40-158"></a>next_content_mul_div: 21.303797468354432/4
+<a id="__codelineno-40-159" name="__codelineno-40-159" href="#__codelineno-40-159"></a>[&#39;21.303797468354432&#39;, &#39;4&#39;]
+<a id="__codelineno-40-160" name="__codelineno-40-160" href="#__codelineno-40-160"></a>mul_div_content: 5.325949367088608
+<a id="__codelineno-40-161" name="__codelineno-40-161" href="#__codelineno-40-161"></a>content: 9-3.3333333333333335+5.325949367088608*2998+10*568/14
+<a id="__codelineno-40-162" name="__codelineno-40-162" href="#__codelineno-40-162"></a>next_content_mul_div: 5.325949367088608*2998
+<a id="__codelineno-40-163" name="__codelineno-40-163" href="#__codelineno-40-163"></a>[&#39;5.325949367088608&#39;, &#39;2998&#39;]
+<a id="__codelineno-40-164" name="__codelineno-40-164" href="#__codelineno-40-164"></a>mul_div_content: 15967.196202531646
+<a id="__codelineno-40-165" name="__codelineno-40-165" href="#__codelineno-40-165"></a>content: 9-3.3333333333333335+15967.196202531646+10*568/14
+<a id="__codelineno-40-166" name="__codelineno-40-166" href="#__codelineno-40-166"></a>next_content_mul_div: 10*568
+<a id="__codelineno-40-167" name="__codelineno-40-167" href="#__codelineno-40-167"></a>[&#39;10&#39;, &#39;568&#39;]
+<a id="__codelineno-40-168" name="__codelineno-40-168" href="#__codelineno-40-168"></a>mul_div_content: 5680.0
+<a id="__codelineno-40-169" name="__codelineno-40-169" href="#__codelineno-40-169"></a>content: 9-3.3333333333333335+15967.196202531646+5680.0/14
+<a id="__codelineno-40-170" name="__codelineno-40-170" href="#__codelineno-40-170"></a>next_content_mul_div: 5680.0/14
+<a id="__codelineno-40-171" name="__codelineno-40-171" href="#__codelineno-40-171"></a>[&#39;5680.0&#39;, &#39;14&#39;]
+<a id="__codelineno-40-172" name="__codelineno-40-172" href="#__codelineno-40-172"></a>mul_div_content: 405.7142857142857
+<a id="__codelineno-40-173" name="__codelineno-40-173" href="#__codelineno-40-173"></a>content: 9-3.3333333333333335+15967.196202531646+405.7142857142857
+<a id="__codelineno-40-174" name="__codelineno-40-174" href="#__codelineno-40-174"></a>next_content_add_sub: 9-3.3333333333333335
+<a id="__codelineno-40-175" name="__codelineno-40-175" href="#__codelineno-40-175"></a>[&#39;9&#39;, &#39;3.3333333333333335&#39;]
+<a id="__codelineno-40-176" name="__codelineno-40-176" href="#__codelineno-40-176"></a>add_sub_content: 5.666666666666666
+<a id="__codelineno-40-177" name="__codelineno-40-177" href="#__codelineno-40-177"></a>content: 5.666666666666666+15967.196202531646+405.7142857142857
+<a id="__codelineno-40-178" name="__codelineno-40-178" href="#__codelineno-40-178"></a>next_content_add_sub: 5.666666666666666+15967.196202531646
+<a id="__codelineno-40-179" name="__codelineno-40-179" href="#__codelineno-40-179"></a>[&#39;5.666666666666666&#39;, &#39;15967.196202531646&#39;]
+<a id="__codelineno-40-180" name="__codelineno-40-180" href="#__codelineno-40-180"></a>add_sub_content: 15972.862869198312
+<a id="__codelineno-40-181" name="__codelineno-40-181" href="#__codelineno-40-181"></a>content: 15972.862869198312+405.7142857142857
+<a id="__codelineno-40-182" name="__codelineno-40-182" href="#__codelineno-40-182"></a>next_content_add_sub: 15972.862869198312+405.7142857142857
+<a id="__codelineno-40-183" name="__codelineno-40-183" href="#__codelineno-40-183"></a>[&#39;15972.862869198312&#39;, &#39;405.7142857142857&#39;]
+<a id="__codelineno-40-184" name="__codelineno-40-184" href="#__codelineno-40-184"></a>add_sub_content: 16378.577154912598
+<a id="__codelineno-40-185" name="__codelineno-40-185" href="#__codelineno-40-185"></a>content: 16378.577154912598
+<a id="__codelineno-40-186" name="__codelineno-40-186" href="#__codelineno-40-186"></a>next_expression: -1-2*((60+2*8442.0*16378.577154912598)-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-40-187" name="__codelineno-40-187" href="#__codelineno-40-187"></a>content: 60+2*8442.0*16378.577154912598
+<a id="__codelineno-40-188" name="__codelineno-40-188" href="#__codelineno-40-188"></a>next_content_mul_div: 2*8442.0
+<a id="__codelineno-40-189" name="__codelineno-40-189" href="#__codelineno-40-189"></a>[&#39;2&#39;, &#39;8442.0&#39;]
+<a id="__codelineno-40-190" name="__codelineno-40-190" href="#__codelineno-40-190"></a>mul_div_content: 16884.0
+<a id="__codelineno-40-191" name="__codelineno-40-191" href="#__codelineno-40-191"></a>content: 60+16884.0*16378.577154912598
+<a id="__codelineno-40-192" name="__codelineno-40-192" href="#__codelineno-40-192"></a>next_content_mul_div: 16884.0*16378.577154912598
+<a id="__codelineno-40-193" name="__codelineno-40-193" href="#__codelineno-40-193"></a>[&#39;16884.0&#39;, &#39;16378.577154912598&#39;]
+<a id="__codelineno-40-194" name="__codelineno-40-194" href="#__codelineno-40-194"></a>mul_div_content: 276535896.68354434
+<a id="__codelineno-40-195" name="__codelineno-40-195" href="#__codelineno-40-195"></a>content: 60+276535896.68354434
+<a id="__codelineno-40-196" name="__codelineno-40-196" href="#__codelineno-40-196"></a>next_content_add_sub: 60+276535896.68354434
+<a id="__codelineno-40-197" name="__codelineno-40-197" href="#__codelineno-40-197"></a>[&#39;60&#39;, &#39;276535896.68354434&#39;]
+<a id="__codelineno-40-198" name="__codelineno-40-198" href="#__codelineno-40-198"></a>add_sub_content: 276535956.68354434
+<a id="__codelineno-40-199" name="__codelineno-40-199" href="#__codelineno-40-199"></a>content: 276535956.68354434
+<a id="__codelineno-40-200" name="__codelineno-40-200" href="#__codelineno-40-200"></a>next_expression: -1-2*(276535956.68354434-(-4*3)/(16-3*2))+56+(56-45)
+<a id="__codelineno-40-201" name="__codelineno-40-201" href="#__codelineno-40-201"></a>content: -4*3
+<a id="__codelineno-40-202" name="__codelineno-40-202" href="#__codelineno-40-202"></a>next_content_mul_div: 4*3
+<a id="__codelineno-40-203" name="__codelineno-40-203" href="#__codelineno-40-203"></a>[&#39;4&#39;, &#39;3&#39;]
+<a id="__codelineno-40-204" name="__codelineno-40-204" href="#__codelineno-40-204"></a>mul_div_content: 12.0
+<a id="__codelineno-40-205" name="__codelineno-40-205" href="#__codelineno-40-205"></a>content: -12.0
+<a id="__codelineno-40-206" name="__codelineno-40-206" href="#__codelineno-40-206"></a>next_expression: -1-2*(276535956.68354434--12.0/(16-3*2))+56+(56-45)
+<a id="__codelineno-40-207" name="__codelineno-40-207" href="#__codelineno-40-207"></a>content: 16-3*2
+<a id="__codelineno-40-208" name="__codelineno-40-208" href="#__codelineno-40-208"></a>next_content_mul_div: 3*2
+<a id="__codelineno-40-209" name="__codelineno-40-209" href="#__codelineno-40-209"></a>[&#39;3&#39;, &#39;2&#39;]
+<a id="__codelineno-40-210" name="__codelineno-40-210" href="#__codelineno-40-210"></a>mul_div_content: 6.0
+<a id="__codelineno-40-211" name="__codelineno-40-211" href="#__codelineno-40-211"></a>content: 16-6.0
+<a id="__codelineno-40-212" name="__codelineno-40-212" href="#__codelineno-40-212"></a>next_content_add_sub: 16-6.0
+<a id="__codelineno-40-213" name="__codelineno-40-213" href="#__codelineno-40-213"></a>[&#39;16&#39;, &#39;6.0&#39;]
+<a id="__codelineno-40-214" name="__codelineno-40-214" href="#__codelineno-40-214"></a>add_sub_content: 10.0
+<a id="__codelineno-40-215" name="__codelineno-40-215" href="#__codelineno-40-215"></a>content: 10.0
+<a id="__codelineno-40-216" name="__codelineno-40-216" href="#__codelineno-40-216"></a>next_expression: -1-2*(276535956.68354434--12.0/10.0)+56+(56-45)
+<a id="__codelineno-40-217" name="__codelineno-40-217" href="#__codelineno-40-217"></a>content: 276535956.68354434--12.0/10.0
+<a id="__codelineno-40-218" name="__codelineno-40-218" href="#__codelineno-40-218"></a>next_content_mul_div: 12.0/10.0
+<a id="__codelineno-40-219" name="__codelineno-40-219" href="#__codelineno-40-219"></a>[&#39;12.0&#39;, &#39;10.0&#39;]
+<a id="__codelineno-40-220" name="__codelineno-40-220" href="#__codelineno-40-220"></a>mul_div_content: 1.2
+<a id="__codelineno-40-221" name="__codelineno-40-221" href="#__codelineno-40-221"></a>content: 276535956.68354434--1.2
+<a id="__codelineno-40-222" name="__codelineno-40-222" href="#__codelineno-40-222"></a>next_content_add_sub: 276535956.68354434--1.2
+<a id="__codelineno-40-223" name="__codelineno-40-223" href="#__codelineno-40-223"></a>[&#39;276535956.68354434&#39;, &#39;&#39;, &#39;1.2&#39;]
+<a id="__codelineno-40-224" name="__codelineno-40-224" href="#__codelineno-40-224"></a>add_sub_content: 276535955.48354435
+<a id="__codelineno-40-225" name="__codelineno-40-225" href="#__codelineno-40-225"></a>content: 276535955.48354435
+<a id="__codelineno-40-226" name="__codelineno-40-226" href="#__codelineno-40-226"></a>next_expression: -1-2*276535955.48354435+56+(56-45)
+<a id="__codelineno-40-227" name="__codelineno-40-227" href="#__codelineno-40-227"></a>content: 56-45
+<a id="__codelineno-40-228" name="__codelineno-40-228" href="#__codelineno-40-228"></a>next_content_add_sub: 56-45
+<a id="__codelineno-40-229" name="__codelineno-40-229" href="#__codelineno-40-229"></a>[&#39;56&#39;, &#39;45&#39;]
+<a id="__codelineno-40-230" name="__codelineno-40-230" href="#__codelineno-40-230"></a>add_sub_content: 11.0
+<a id="__codelineno-40-231" name="__codelineno-40-231" href="#__codelineno-40-231"></a>content: 11.0
+<a id="__codelineno-40-232" name="__codelineno-40-232" href="#__codelineno-40-232"></a>next_expression: -1-2*276535955.48354435+56+11.0
+<a id="__codelineno-40-233" name="__codelineno-40-233" href="#__codelineno-40-233"></a>next_content_mul_div: 2*276535955.48354435
+<a id="__codelineno-40-234" name="__codelineno-40-234" href="#__codelineno-40-234"></a>[&#39;2&#39;, &#39;276535955.48354435&#39;]
+<a id="__codelineno-40-235" name="__codelineno-40-235" href="#__codelineno-40-235"></a>mul_div_content: 553071910.9670887
+<a id="__codelineno-40-236" name="__codelineno-40-236" href="#__codelineno-40-236"></a>content: -1-553071910.9670887+56+11.0
+<a id="__codelineno-40-237" name="__codelineno-40-237" href="#__codelineno-40-237"></a>next_content_add_sub: -1-553071910.9670887
+<a id="__codelineno-40-238" name="__codelineno-40-238" href="#__codelineno-40-238"></a>[&#39;&#39;, &#39;1&#39;, &#39;553071910.9670887&#39;]
+<a id="__codelineno-40-239" name="__codelineno-40-239" href="#__codelineno-40-239"></a>add_sub_content: -553071911.9670887
+<a id="__codelineno-40-240" name="__codelineno-40-240" href="#__codelineno-40-240"></a>content: -553071911.9670887+56+11.0
+<a id="__codelineno-40-241" name="__codelineno-40-241" href="#__codelineno-40-241"></a>next_content_add_sub: -553071911.9670887+56
+<a id="__codelineno-40-242" name="__codelineno-40-242" href="#__codelineno-40-242"></a>[&#39;-553071911.9670887&#39;, &#39;56&#39;]
+<a id="__codelineno-40-243" name="__codelineno-40-243" href="#__codelineno-40-243"></a>add_sub_content: -553071855.9670887
+<a id="__codelineno-40-244" name="__codelineno-40-244" href="#__codelineno-40-244"></a>content: -553071855.9670887+11.0
+<a id="__codelineno-40-245" name="__codelineno-40-245" href="#__codelineno-40-245"></a>next_content_add_sub: -553071855.9670887+11.0
+<a id="__codelineno-40-246" name="__codelineno-40-246" href="#__codelineno-40-246"></a>[&#39;-553071855.9670887&#39;, &#39;11.0&#39;]
+<a id="__codelineno-40-247" name="__codelineno-40-247" href="#__codelineno-40-247"></a>add_sub_content: -553071844.9670887
+<a id="__codelineno-40-248" name="__codelineno-40-248" href="#__codelineno-40-248"></a>content: -553071844.9670887
+<a id="__codelineno-40-249" name="__codelineno-40-249" href="#__codelineno-40-249"></a>-553071844.9670887
+</code></pre></div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-04-15T09:08:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-15</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-04-15T09:08:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-15</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../shuti/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 解压缩" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              解压缩
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../%E6%97%B6%E9%97%B4/" class="md-footer__link md-footer__link--next" aria-label="下一页: 时间" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              时间
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016 - 2020
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:<email-address>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m511.6 36.86-64 415.1a32.008 32.008 0 0 1-31.65 27.147c-4.188 0-8.319-.815-12.29-2.472l-122.6-51.1-50.86 76.29C226.3 508.5 219.8 512 212.8 512c-11.5 0-20.8-9.3-20.8-20.8v-96.18c0-7.115 2.372-14.03 6.742-19.64L416 96 122.3 360.3 19.69 317.5C8.438 312.8.812 302.2.062 289.1s5.47-23.72 16.06-29.77l448-255.1c10.69-6.109 23.88-5.547 34 1.406S513.5 24.72 511.6 36.86z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "navigation.tabs", "toc.follow", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../javascripts/tablesort.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../javascripts/polyfill.min.js"></script>
+      
+        <script src="../../../javascripts/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/tablesort.min.js"></script>
+      
+    
+  </body>
+</html>
